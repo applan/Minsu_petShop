@@ -5,25 +5,70 @@
  .all_b{
   padding-top: 20px;
  }
+ #en_a{
+  margin-top: 20px;
+  padding: 1px 12px;
+ }
+ #en_b{
+  padding: 1px 12px; 
+ }
+ #en_c{
+  padding: 1px 12px;
+ }
+ #en_d{
+  padding: 1px 12px;
+ }
+ #sum{
+ margin-top: 40px;
+ }
+ 
+ 
+ 
 </style>
-
+<link href="https://fonts.googleapis.com/css?family=Jua" rel="stylesheet">
 <div class="all_b">
+
 	<div style="display: flex; justify-content: space-between;">
 		<div>
-			<h1>상품 등록</h1>
-		</div>
-		<div>
-			<button type="button" class="btn btn-success" style="margin-top: 20px; height: 40px; margin-right: 480px;">등록</button>
+			<h1 style="font-family: 'Jua', sans-serif; font-size: 55px;" >상품 등록</h1>
+			
 		</div>
 	</div>
-		<div style="padding-right:55%;">
-			<input type="text" class="form-control" placeholder="상품 제목을 입력해주세요" >
-		</div>
-			<br />
-			<br />
-		<div style="height: 400px">
-			<textarea class="form-control " rows="3" placeholder="상품 정보를 입력해주세요" style="resize: none; width: 70%; height: 400px"></textarea>
+	<form action="" method="post">
+		<div>
+		     <div style="display: flex;">
+		     <label for="en" id="en_a" style="width: 45%"><- 상품 제목 입력란 -></label>
+		     <label for="en_da" id="en_da" style="margin-left: 10%; padding-top: 20px;"><- 상품 최대 표출 기간 -></label>
+		     </div>
+		     <div style="display: flex;">
+			<input type="text" class="form-control" placeholder="상품 제목을 입력해주세요" id="en" required="required" style="width: 45%;" name="goodsName">
+			<input type="date" style="margin-left: 10%" id="en_da" name="goodsDate"/>
+			</div>
 		</div>
 		
+		<div style="padding-top: 2%; padding-right: 55%">
+		   <label for="en_b" id="en_b"><- 판매자 아이디 -></label>
+		   <input type="text"  class="form-control" placeholder="판매자 아이디를 넣어주세요" id="en_b" required="required" name="goodsId"/>
+		</div>
+		
+		<div style="padding-top: 2%; padding-right: 55%">
+		   <label for="en_b" id="en_b"><- 상품 이미지 링크 -></label>
+		   <input type="text"  class="form-control" placeholder="상품의 이미지 링크를 넣어주세요" id="en_b" required="required" name="goodsMainUrl"/>
+		</div>
+		
+		<div style="padding-top: 2%; padding-right: 55%">
+		   <label for="en_c" id="en_c"><- 상품 상세 이미지 링크 -></label>
+		   <input type="text"  class="form-control" placeholder="상품의 상세 이미지 링크를 넣어주세요" id="en_c" name="goodsUrl"/>
+		</div>
+		
+		<div style="height: 400px; padding-top: 40px">
+		    <label for="en_d" id="en_d"><- 상품 정보 입력란 -></label>
+			<textarea class="form-control " rows="3" placeholder="상품 정보를 입력해주세요" style="resize: none; width: 70%; height: 400px" id="en_d" name="goodsInfo"></textarea>
+		</div>
+		
+		<div style="padding-top: 40px;">
+			<button type="submit" class="btn btn-success" id="sum">등록</button>
+		</div>
+	</form>
 </div>
 <%@include file="../includes/footer_admin.jsp" %>
