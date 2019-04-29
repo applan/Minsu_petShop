@@ -12,6 +12,8 @@ create sequence goodsNum_sq;
 
 drop table test_goods;
 
+select * from TEST_GOODS;
+
 insert into test_goods values(goodsNum_sq.nextVal,
 '강아지 사료', 
 '김파파', 
