@@ -11,6 +11,10 @@
   width: 20px;
   height: 20px;
  }
+  .checkimg_i{
+  width: 20px;
+  height: 20px;
+ }
  
 </style>
 <div class="all_b">
@@ -24,6 +28,7 @@
       <th scope="col">판매자 아이디</th>
       <th scope="col">요구 최종 계약 기간</th>
       <th scope="col">요구 상품 상세 정보</th>
+      <th scope="col">요구 상품 정보 삭제</th>
     </tr>
   </thead>
   
@@ -36,7 +41,7 @@
 		  <td>${list.goodsId}</td>
 		  <td>${list.goodsDate}</td>
 		  <td class="t"><a href="/adminChoicePage_trash?goodNum=${list.goodsNum}"><img src="resources/img/icon_info.png" class="checkimg_in" role="${list.goodsNum}"/></a></td>
-		  <td class="t"><a href="/delete?goodNum=${list.goodsNum}"><img src="resources/img/delete.png" class="checkimg_in" role="${list.goodsNum}"/></a></td>
+		  <td class="t"><a href="/delete_request?goodsNum=${list.goodsNum}" ><img src="resources/img/delete.png" class="checkimg_i"/></a></td>
 		</tr>
 		</c:forEach>
   </tbody>

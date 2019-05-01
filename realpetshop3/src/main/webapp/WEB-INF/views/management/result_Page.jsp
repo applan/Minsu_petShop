@@ -135,6 +135,19 @@
 		location.href="/adminChoicePage_member";
 	}
 	
+	// 요청 상품 정보 삭제
+	var res9 = "${result_permanently_Delete_request}";
+	if(res9 === "true"){
+		alert("요청된 상품 정보 삭제를 성공했습니다.");
+		res9 = "";
+		location.href="/adminChoicePage_delete";
+	}
+	if(res9 === "false"){
+		alert("요청된 상품 정보 삭제가 실패했습니다.");
+		res9 = "";
+		location.href="/adminChoicePage_delete";
+	}
+	
 });
 </script>
 </body>

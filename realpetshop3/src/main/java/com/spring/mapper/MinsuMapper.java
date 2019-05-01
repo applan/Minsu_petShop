@@ -42,4 +42,7 @@ public interface MinsuMapper {
 	
 	// 권한 담당 
 	public int modify_authority(UserChangeVO vo);
+	
+	// request담당
+	public int delete_reques(int goodsNum);
 }

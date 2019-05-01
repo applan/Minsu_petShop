@@ -1,7 +1,11 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
 <mapper namespace="com.spring.mapper.MinsuMapper">
- 
+
+	<delete id="delete_reques">
+	  delete from test_request_goods where goodsNum = #{goodsNum}  
+	</delete>
+  
  <insert id="insert">
    insert into test_goods(goodsNum, goodsName, goodsId, goodsMainUrl, goodsUrl, goodsDate, goodsInfo, goodsPrice) 
    values(goodsNum_sq.nextVal, #{goodsName}, #{goodsId}, #{goodsMainUrl}, #{goodsUrl , jdbcType=VARCHAR}, #{goodsDate , jdbcType=DATE}, #{goodsInfo , jdbcType=VARCHAR}, #{goodsPrice})
@@ -77,6 +81,7 @@
  <delete id="permanently_Delete_goods">
   delete from test_goods_trash where goodsNum = #{goodsNum}
  </delete>
+
  
   <select id="getMember_Trash" resultType="com.spring.domain.UserVO_Trash">
   select * from pet_user_trash where userno = #{userno}
@@ -95,4 +100,8 @@
    insert into pet_user(userno, password, userid, username, emailcheck,addr,email,cat,dog,num) 
    values(#{userno},#{password}, #{userid}, #{username}, #{emailcheck, jdbcType=VARCHAR},#{addr, jdbcType=VARCHAR},#{email},#{cat, jdbcType=VARCHAR},#{dog, jdbcType=VARCHAR},#{num})
  </insert>
+ 
+  <!--  requet 삭제 -->
+
+  
 </mapper>
