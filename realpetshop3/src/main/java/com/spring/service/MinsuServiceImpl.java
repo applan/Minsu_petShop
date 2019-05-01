@@ -38,6 +38,10 @@ public class MinsuServiceImpl implements MinsuService {
 		return mapper.getList_member();
 	}
 	
+	@Override
+	public int delete_reques(int goodsNum) {
+		return mapper.delete_reques(goodsNum);
+	}
 	
 	@Override
 	@Transactional
@@ -147,6 +151,10 @@ public class MinsuServiceImpl implements MinsuService {
 	public GoodsVO getGood(int goodsNum) {
 		return mapper.getGood(goodsNum);
 	}
+
+
+
+
 
 
 

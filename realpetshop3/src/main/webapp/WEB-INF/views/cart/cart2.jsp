@@ -105,9 +105,9 @@
 
 												<!-- WIDERPLANET CART SCRIPT START 2019.2.15 -->
 
-												<script type="text/javascript">
+												<!-- <script type="text/javascript">
 													var wp_page_type = 'Cart';
-												</script>
+												</script> -->
 												<!-- // WIDERPLANET CART SCRIPT END 2019.2.15 -->
 
 
@@ -115,7 +115,7 @@
 
 												<!-- End of Groobee Order & Cart Selector Script -->
 
-
+                                              <c:forEach var="i" begin="0" end="3">
 												<tr>
 													<td class="td_chk">
 														<div class="form_element">
@@ -135,8 +135,8 @@
 													<td class="td_left">
 														<div class="pick_add_cont">
 															<span class="pick_add_img"><a href="#"><img
-																	src="#" width="40" alt="[1+1증정]스튜어트 동결건조 닭가슴살 파우치 85g"
-																	title="[1+1증정]스튜어트 동결건조 닭가슴살 파우치 85g" class="middle"></a>
+																	src="https://www.petbox.kr/data/goods/19/03/12//16941/register_detail_087.jpg" width="40" alt="[1+1증정]스튜어트 동결건조 닭가슴살 파우치 85g"
+																	class="middle">${list.goodsname}</a>
 															</span>
 															<div class="pick_add_info">
 
@@ -158,14 +158,14 @@
 														</div>
 													</td>
 													<td style="padding-top: 30px;"><strong
-														class="order_sum_txt price">24,000원</strong>
+														class="order_sum_txt price">${list.price}</strong>
 														<p class="add_currency"></p></td>
 													<td class="td_benefit">
 														<ul class="benefit_list">
 														</ul>
 													</td>
 												</tr>
-
+                                             </c:forEach>
 											</tbody>
 
 
