@@ -55,4 +55,16 @@ public class PaymentController {
 		log.info("정기결제 화면 부르기");
 		return "payment/monthpay";
 	}
+	@GetMapping("/cart3")
+	public String cart3() {
+		log.info("주문 결제화면");
+		
+		return "cart/cart3";
+	}
+	@GetMapping("/success")
+	public String success(){
+		log.info("결제완료");
+		return "payment/success";
+	}
+	
 }
