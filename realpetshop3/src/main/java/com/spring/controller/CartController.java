@@ -9,6 +9,7 @@ import java.util.Map;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
+import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.PostMapping;
@@ -62,8 +63,16 @@ public class CartController {
 	
 	//장바구니 리스트 보여주기
 	@GetMapping("/cart2")
-	public void listCart() {
+	public void listCart(Model model) {
 		log.info("listCart 보여주기..");
+		List<CartVO> list =service.listCart(10);
+		if(!list.isEmpty()) {
+			for(int i=0; i<list.size(); i++) {
+				long total = list.get(i).getPrice() * 2;
+				list.get(i).setMoney(String.format("%,d", total));
+			}
+		}
+		model.addAttribute("list", list);
 	}
 	//장바구니 리스트 보여주기
 	@GetMapping("/cart3")

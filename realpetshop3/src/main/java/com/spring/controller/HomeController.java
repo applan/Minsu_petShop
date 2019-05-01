@@ -1,53 +1,39 @@
 package com.spring.controller;
 
-
-import java.util.List;
-
-import javax.inject.Inject;
+import java.text.DateFormat;
+import java.util.Date;
+import java.util.Locale;
 
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
-import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 
-import com.spring.domain.SearchVO;
-import com.spring.service.SearchService;
-
-import lombok.extern.slf4j.Slf4j;
-
-
-@Slf4j
+/**
+ * Handles requests for the application home page.
+ */
 @Controller
 public class HomeController {
 	
-	@Inject
-	private SearchService service;
+	private static final Logger logger = LoggerFactory.getLogger(HomeController.class);
 	
+	/**
+	 * Simply selects the home view to render by returning its name.
+	 */
 	@RequestMapping(value = "/", method = RequestMethod.GET)
-	public String home() {
+	public String home(Locale locale, Model model) {
+		logger.info("Welcome home! The client locale is {}.", locale);
 		
+		Date date = new Date();
+		DateFormat dateFormat = DateFormat.getDateTimeInstance(DateFormat.LONG, DateFormat.LONG, locale);
+		
+		String formattedDate = dateFormat.format(date);
+		
+		model.addAttribute("serverTime", formattedDate );
 		
 		return "home";
-	}
-	
-	@GetMapping("/view")
-	public void view() {
-		log.info("main page 호출...");
-	}
-	@GetMapping("/search")
-	public String search(Model model) {
-		log.info("검색 화면 호출");
-
-		//전체 리스트 가져오기
-		List<SearchVO> list=service.getSearch();
-		
-		model.addAttribute("list", list);
-		//컨트롤러에서 어느탭을 띄울 것인지 결정하여 보내기	
-		
-		return "search/search";
 	}
 	
 }

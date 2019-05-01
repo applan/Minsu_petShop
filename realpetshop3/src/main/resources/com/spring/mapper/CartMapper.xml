@@ -3,27 +3,14 @@
 <mapper namespace="com.spring.mapper.CartMapper">
 <!-- 장바구니 추가 -->
 <insert id="insertCart">
-	insert into cart_tbl(cartno,userno,goodsNum,amount)
-	values(seq_cart.nextVal,#{userno},#{goodsNum},#{amount})
+	insert into CART_TBL(cartno,userno,goodsnum,goodsname,amount,price,goodsMainUrl) 
+    VALUES(seq_cart.nextVal,#{userno},#{goodsnum},(select goodsName from TEST_GOODS where goodsNum = #{goodsnum}),
+    1,(select goodsPrice from TEST_GOODS where goodsNum = #{goodsnum}),(select goodsMainUrl from TEST_GOODS where goodsNum = #{goodsnum}))
 </insert>
 
 <!--장바구니 목록  -->
 <select id="listCart" resultType="com.spring.domain.CartVO">
-	SELECT
-		c.cartno AS cartno,
-		c.userno AS userno,
-		g.goodsNum AS goodsNum,
-		g.goodsName AS goodsName,
-		c.amount AS amount,
-		g.goodsPrice AS goodsPrice,
-		(goodsPrice *amount) money
-	From
-		pet_user p, goods_tbl g, cart_tbl c
-	where p.userno =c.userno
-		AND g.goodsNum= c.goodsNum
-		AND c.userno=#{userno}
-	ORDERBY
-		c.cartno			
+	SELECT * From cart_tbl where userno=#{userno} ORDER BY cartno			
 </select>
 
 <!--장바구니 전체 금액-->

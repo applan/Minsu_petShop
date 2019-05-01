@@ -20,9 +20,9 @@ public class GoodsVIewController {
 	private MinsuService service;
 	
 	@GetMapping("/GoodsInfoView")
-	public String goGoodsInfoView(Model model) {
+	public String goGoodsInfoView(int goodsnum,Model model) {
 		log.info("GoodsInfoView....");
-		GoodsVO vo = service.getGood(20);
+		GoodsVO vo = service.getGood(goodsnum);
 		
 		if(vo == null) {
 			return "redirect:/";

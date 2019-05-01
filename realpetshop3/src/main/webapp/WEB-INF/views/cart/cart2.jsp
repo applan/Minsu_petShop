@@ -115,7 +115,7 @@
 
 												<!-- End of Groobee Order & Cart Selector Script -->
 
-                                              <c:forEach var="i" begin="0" end="3">
+                                              <c:forEach var="list" items="${list}">
 												<tr>
 													<td class="td_chk">
 														<div class="form_element">
@@ -123,8 +123,8 @@
 																name="cartSno[]" value="11019" checked="checked"
 																data-price="24000" data-mileage="0" data-goodsdc="0"
 																data-memberdc="0" data-coupondc="0" data-possible="y"
-																data-goods-key="0" data-goods-no="16771"
-																data-goods-nm="[1+1증정]스튜어트 동결건조 닭가슴살 파우치 85g"
+																data-goods-key="0" data-goods-no=""
+																data-goods-nm="${list.goodsname}"
 																data-option-nm="" data-fixed-sales="option"
 																data-sales-unit="1" data-fixed-order-cnt="option"
 																data-min-order-cnt="1" data-max-order-cnt="0"
@@ -134,8 +134,8 @@
 													</td>
 													<td class="td_left">
 														<div class="pick_add_cont">
-															<span class="pick_add_img"><a href="#"><img
-																	src="https://www.petbox.kr/data/goods/19/03/12//16941/register_detail_087.jpg" width="40" alt="[1+1증정]스튜어트 동결건조 닭가슴살 파우치 85g"
+															<span class="pick_add_img"><a href="/GoodsInfoView?goodsnum=${list.goodsnum}"><img
+																	src="${list.goodsMainUrl}" width="40" alt="${list.goodsname}"
 																	class="middle">${list.goodsname}</a>
 															</span>
 															<div class="pick_add_info">
@@ -154,20 +154,20 @@
 													</td>
 													<td class="td_order_amount">
 														<div class="product-quantity">
-															<input type="number" value="1" min="1">
+															<input type="number" value="${list.amount}" min="1">
 														</div>
 													</td>
 													<td style="padding-top: 30px;"><strong
 														class="order_sum_txt price">${list.price}</strong>
 														<p class="add_currency"></p></td>
-													<td class="td_benefit">
-														<ul class="benefit_list">
+													<td class="td_benefit" >
+														<ul class="benefit_list" style="padding-left: 0px">
+														  ${list.money} 원
 														</ul>
 													</td>
 												</tr>
                                              </c:forEach>
 											</tbody>
-
 
 										</table>
 									</div>
