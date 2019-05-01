@@ -1,103 +1,60 @@
-<html>
-<head>
-	<title>Themewagon Live Demo | Avalon-Full-width One Page Free HTML5 Bootstrap Event Website Template</title>
+<%@ page language="java" contentType="text/html; charset=UTF-8" pageEncoding="UTF-8"%>
+<%@taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c" %>
+<%@include file="../includes/header.jsp" %>
+<link rel="stylesheet" href="/resources/css/style.css" />
+<link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.8.1/css/all.css" integrity="sha384-50oBUHEmvpQ+1lW4y57PTFmhCaXp0ML5d60M1M7uH2+nqUivzIebhndOJK28anvf" crossorigin="anonymous">
+<meta name="viewport" content="width=device-width, initial-scale=1">
 
-	<!-- Mobile Specific -->
-	<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-	<link rel="stylesheet" type="text/css" href="http://themewagon.com/wp-content/themes/wagoncore/css/demo.css">
+<div class="container">
+<section class="event-page">
+	<div class="leftBox">
+		<div class="content">
+			<h1>Event</h1>
+			<h3>펫 샵에서만 볼 수 있는<br>특별한 이벤트!!<i class="far fa-laugh-squint"></i></h3>
+			<p>달 마다 바뀌는 다양한 이벤트를 놓치지 마세요!</p>
+		</div>
+	</div>
+	<div class="events">
+		<ul>
+			<li>
+				<div class="time">
+					<h2>5<span>월</span><br><span>1~31</span></h2>
+				</div>
+				<div class="details">
+					<h3><i class="fas fa-medal" style="color: #DE6868;"></i> 베스트 리뷰 이벤트! <i class="fas fa-medal" style="color: #DE6868;"></i></h3>
+					<p>5월의 베스트 리뷰어를 뽑아 총 10명에게 특별한 상품을 드립니다!</p>
+					<a href="#">자세히보기</a>
+				</div>
+				<div style="clear: both;">
+				</div>
+			</li>
+			<li>
+				<div class="time">
+					<h2>5<span>월</span><br><span>1~31</span></h2>
+				</div>
+				<div class="details">
+					<h3><i class="fas fa-check" style="color: #DE6868;"></i> 출석체크 <i class="fas fa-check" style="color: #DE6868;"></i></h3>
+					<p>일주일 100% 출석하면 1000P!<br>한 달 100% 출석하면 5000P!</p>
+					<a href="#">출석체크하기</a>
+				</div>
+				<div style="clear: both;">
+				</div>
+			</li>
+			<li>
+				<div class="time">
+					<h2>6<span>월</span><br><span>1~30</span></h2>
+				</div>
+				<div class="details">
+					<h3><i class="fas fa-coins" style="color: #DE6868;"></i> POINT 적립  <i class="fas fa-coins" style="color: #DE6868;"></i></h3>
+					<p>SNS에 펫 샵을 홍보해주시면<br>포인트를 적립해드립니다!</p>
+					<a href="#">자세히보기</a>
+				</div>
+				<div style="clear: both;">
+				</div>
+			</li>
+		</ul>
+	</div>
+</section>
+</div>
 
-	<style>
-	body {
-	    height: calc(100% - 51px);
-	    box-sizing: content-box;
-	    min-height: 600px;
-	}
-	</style>
-</head>
-<body>
-
-<div id="switcher">
-		<div class="center">
-            <div class="logo">
-                <a href="http://www.themewagon.com">
-					<img class="logo" src="https://themewagon.com/wp-content/themes/wagoncore/img/logo-demo.png" alt="ThemeWagon">
-				</a>
-            </div>
-            				
-                <ul>
-                    <li id="theme_list">
-                    	<a id="theme_select" href="https://themewagon.com/themes">View All Themes</a>
-                    </li>	
-                </ul>
-                <div class="responsive">
-                    <a href="#" class="desktop active" title="View Desktop Version"></a> 
-                    <a href="#" class="tabletlandscape" title="View Tablet Landscape (1024x768)"></a> 
-                    <a href="#" class="tabletportrait" title="View Tablet Portrait (768x1024)"></a> 
-                    <a href="#" class="mobilelandscape" title="View Mobile Landscape (480x320)"></a>
-                    <a href="#" class="mobileportrait" title="View Mobile Portrait (320x480)"></a>
-                </div>
-                
-                <ul class="links">
-                    <li class="download">
-                    	<a href="https://themewagon.com/themes/one-page-event-website-template/">
-                    		<img src="http://themewagon.com/wp-content/themes/wagoncore/img/download.png" alt="">
-                    		Download
-                    	</a>
-                    </li>		
-                    <li class="close">
-                    	<a href="https://technext.github.io/avalon/">
-                    		<img src="http://themewagon.com/wp-content/themes/wagoncore/img/cross.png" alt=""> 
-                    		Close
-                    	</a>
-                    </li>		
-                </ul>
-        </div>
-    </div>
-
-    <iframe id="iframe" src="https://technext.github.io/avalon/" frameborder="0" width="100%"></iframe>
-
-    <script async="" src="//www.google-analytics.com/analytics.js"></script><script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.2/jquery.min.js"></script>
-
-    <script type="text/javascript">
-    	var IS_IPAD=navigator.userAgent.match(/iPad/i)!=null;
-    	$("#header-bar").hide();
-			clicked="desktop";
-			var t= {
-				desktop:"100%",tabletlandscape:1040,tabletportrait:788,mobilelandscape:500,mobileportrait:340,placebo:0
-			}
-			;
-			jQuery(".responsive a").on("click",function() {
-				var e=jQuery(this);
-				for (device in t) {
-					if(e.hasClass(device)) {
-						clicked=device;
-						jQuery("#iframe").width(t[device]);
-						if(clicked==device) {
-							jQuery(".responsive a").removeClass("active");
-							e.addClass("active")
-						}
-					}
-				}
-				return false
-			}
-			);
-			if(IS_IPAD) {
-				$("#iframe").css("padding-bottom","60px")
-			}
-    </script>
-
-	 	    <script>
-		  (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
-		  (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
-		  m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
-		  })(window,document,'script','//www.google-analytics.com/analytics.js','ga');
-
-		  ga('create', 'UA-55162400-1', 'auto');
-		  ga('send', 'pageview');
-
-		</script>
-
-	
-
-
-</body></html>
+<%@include file="../includes/footer.jsp" %>

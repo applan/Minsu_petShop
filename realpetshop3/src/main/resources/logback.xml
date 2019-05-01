@@ -11,6 +11,7 @@
  
 
 	<logger name="com.spring.controller" level="info"/>
+	<logger name="com.spring.mapper" level="debug"/>
 	
  <!-- 3rdparty Loggers -->
 	<logger name="org.springframework.core" level="info"/> <!-- interface상속한 class개념 -->

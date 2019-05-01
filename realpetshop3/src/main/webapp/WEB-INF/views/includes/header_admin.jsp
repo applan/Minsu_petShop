@@ -9,6 +9,7 @@
     <meta name="description" content="">
     <meta name="author" content="">
     <title>Pet Shop_Admin_Page</title>
+
     <style>
      .im{
       width: 18px; 
@@ -26,6 +27,8 @@
      }
      
     </style>
+    <!-- 폰트 사용 -->
+    <link href="https://fonts.googleapis.com/css?family=Jua" rel="stylesheet">
     <!-- Bootstrap Core CSS -->
     <link href="/resources/vendor/bootstrap/css/bootstrap.min.css" rel="stylesheet">
     <!-- MetisMenu CSS -->
@@ -87,11 +90,7 @@
                         <i class="fa fa-fw"><img src="resources/img/admin.png" class="chart"/></i> <i class="fa fa-caret-down"></i>
                     </a>
                     <ul class="dropdown-menu dropdown-user">
-                        <li><a href="#"><i class="fa fa-user fa-fw"></i> User Profile</a>
-                        </li>
-                        <li><a href="#"><i class="fa fa-gear fa-fw"></i> Settings</a>
-                        </li>
-                        <li class="divider"></li>
+                    
                         <li><a href="login.html"><i class="fa fa-sign-out fa-fw"></i> Logout</a>
                         </li>
                     </ul>
@@ -109,18 +108,23 @@
                          
                         </li>
                         <li>
-                            <a href="adminChoicePage_meber"><i class="fa fa-fw "><img src="resources/img/member.png" class="im" style="height: 20px; width: 20px;"/></i>  회원 정보 수정 </a>
-                            
+                            <a href="adminChoicePage_member"><i class="fa fa-fw "><img src="resources/img/member.png" class="im" style="height: 20px; width: 20px;"/></i>  회원 관리 </a>
                         </li>
                         <li>
                             <a href="email"><i class="fa fa-fw"><img src="resources/img/email.png" class="im" style="height: 20px; width: 20px;"/></i>  신상품 광고  </a>
                             <!-- /.nav-second-level -->
                         </li>
                         <li>
-                            <a href="adminChoicePage_delete"><i class="fa fa-fw "><img src="resources/img/file.png" class="im" style="height: 20px; width: 20px;"/></i> 상품 정보 삭제 </a>
+                            <a href="adminChoicePage_delete"><i class="fa fa-fw "><img src="resources/img/file.png" class="im" style="height: 20px; width: 20px;"/></i> 상품 관리 </a>
                         </li>
                         <li>
                             <a href="adminChoicePage_enrollment"><i class="fa fa-fw "><img src="resources/img/notes.png" class="im" style="height: 20px; width: 20px;"/></i> 상품 등록 </a>
+                        </li>
+                        <li>
+                            <a href="adminChoicePage_request"><i class="fa fa-fw "><img src="resources/img/upload.png" class="im" style="height: 20px; width: 20px;"/></i> 상품  등록 요청 </a>
+                        </li>
+                        <li>
+                            <a href="adminChoicePage_trash"><i class="fa fa-fw "><img src="resources/img/trash.png" class="im" style="height: 20px; width: 20px;"/></i> 휴지통 </a>
                         </li>
                         <!-- <li>
                             <a href="/"><i class="fa fa-fw "><img src="resources/img/foot.png" class="im" style="height: 20px; width: 20px;"/></i> UI Elements</a>

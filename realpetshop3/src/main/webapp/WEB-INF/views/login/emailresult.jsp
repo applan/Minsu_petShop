@@ -24,7 +24,7 @@
 		res = "";
 	}
 	if(res === ""){
-		location.href="/email";
+		location.href="/login1";
 	}
 });
 </script>

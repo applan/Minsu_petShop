@@ -1,6 +1,8 @@
+
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
 <%@include file="../includes/header_admin.jsp" %>
+
 <style>
  .all_b{
   padding-top: 20px;
@@ -21,11 +23,8 @@
  #sum{
  margin-top: 40px;
  }
- 
- 
- 
 </style>
-<link href="https://fonts.googleapis.com/css?family=Jua" rel="stylesheet">
+
 <div class="all_b">
 
 	<div style="display: flex; justify-content: space-between;">
@@ -35,20 +34,26 @@
 		</div>
 	</div>
 	<form action="" method="post">
+	<!-- 상품 카테고리 넣기  -->
 		<div>
 		     <div style="display: flex;">
 		     <label for="en" id="en_a" style="width: 45%"><- 상품 제목 입력란 -></label>
-		     <label for="en_da" id="en_da" style="margin-left: 10%; padding-top: 20px;"><- 상품 최대 표출 기간 -></label>
+		     <label for="en_da" id="en_da" style="margin-left: 10%; padding-top: 20px;"><- 상품 계약 기간 -></label>
 		     </div>
 		     <div style="display: flex;">
 			<input type="text" class="form-control" placeholder="상품 제목을 입력해주세요" id="en" required="required" style="width: 45%;" name="goodsName">
-			<input type="date" style="margin-left: 10%" id="en_da" name="goodsDate"/>
+			<input type="date" style="margin-left: 10%" id="en_da" name="goodsDate" min="${toDay}"/>
 			</div>
 		</div>
 		
 		<div style="padding-top: 2%; padding-right: 55%">
 		   <label for="en_b" id="en_b"><- 판매자 아이디 -></label>
 		   <input type="text"  class="form-control" placeholder="판매자 아이디를 넣어주세요" id="en_b" required="required" name="goodsId"/>
+		</div>
+		
+		<div style="padding-top: 2%; padding-right: 55%">
+		   <label for="en_b" id="en_b"><- 상품 가격 -></label>
+		   <input type="number"  class="form-control price" placeholder="상품 가격을 입력해주세요" id="en_b" required="required" name="goodsPrice" />
 		</div>
 		
 		<div style="padding-top: 2%; padding-right: 55%">
@@ -71,4 +76,17 @@
 		</div>
 	</form>
 </div>
+<script>
+ $(function() {
+	$(".price").change(function() {
+		var pr = $(".price").val();
+		if(pr < 0){
+			alert("가격은 음수값을 넣을 수 없습니다.");
+			$(".price").val(0); 
+			$(".price").focus();
+	}
+	})
+});
+</script>
+
 <%@include file="../includes/footer_admin.jsp" %>

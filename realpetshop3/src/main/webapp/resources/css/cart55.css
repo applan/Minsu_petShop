@@ -1,0 +1,82 @@
+/*ì½”ë””-ìŠ¤íƒ€ì¼ë§*/
+.styling_content{padding:20px;font-family: "gulim","êµ´ë¦¼";color:#000}
+.styling_content h2{padding: 10px 0;font-size: 24px;font-family: "Musinsa", sans-serif;font-weight: normal;}
+.styling_content .styling_date{line-height: 18px;color: #b2b2b2;padding: 0 0 20px}
+.styling_content .styling_cnt{width:960px;line-height: 20px;word-break: keep-all;}
+
+/*ì´ë¯¸ì§€ ìŠ¬ë¼ì´ë“œ*/
+.detail_slider{overflow: hidden;width:960px;padding:0 130px;margin-top:30px}
+.detail_slider .slick-arrow{background: url(/skin/musinsa/images/icon_right_on.png?20181112) no-repeat 50% 50%;background-size: 39px 72px;margin-top: -60px;z-index: 1000;cursor: pointer;overflow: hidden;text-indent: -9999px;border: none;top: 50%;width: 39px;height: 72px;position: absolute;}
+.detail_slider .slick-prev{-webkit-transform: rotate(180deg);-ms-transform: rotate(180deg);-o-transform: rotate(180deg);transform: rotate(180deg);left: 0%}
+.detail_slider .slick-next{right: 0%;}
+
+/*ìƒí’ˆ ìŠ¬ë¼ì´ë“œ*/
+.styling_goods .model{width: 962px;margin: 30px 0 40px; position: relative;}
+.model .model_bg{width: 120px; height: 120px; background: #ccc; display: block; position: absolute;opacity: 0.1;}
+.styling_goods .model .model_name{display:inline-block;padding: 31px 20px 0;font-size: 15px;font-weight: bold}
+.styling_goods .model .model_info{display: block;padding-top: 10px;font-size: 34px;font-family:"musinsa",sans-serif;font-weight: normal;}
+
+.styling_brand{width: 962px;overflow: hidden;margin-bottom:40px}
+.styling_brand .styling_list{position:relative;}
+.styling_brand .styling_list .styling_img img {width:100%;}
+
+.styling_brand .slick-arrow{display: block;position: absolute;top:119px;z-index: 1000;cursor: pointer;border:none;text-indent:-9999px;overflow: hidden;}
+.styling_brand .slick-prev{background: url(/skin/musinsa/images/icon_arrow_left.png?20181112) no-repeat 45% 50%;left: 0%;background-size: 9px 16px;background-color: #fff;width: 34px;height: 34px;}
+.styling_brand .slick-next{background: url(/skin/musinsa/images/icon_arrow_right.png?20181112) no-repeat 55% 50%;right:0%;background-size: 9px 16px;background-color: #fff;width: 34px;height: 34px;}
+
+.styling_brand .styling_list a{font-size:14px;display: block;}
+.styling_brand .styling_list a.brand{padding-bottom: 10px;}
+.styling_brand .styling_list a.brand_item{margin-bottom: 18px; font-weight: bold; line-height: 1.57;    overflow: hidden;}
+/*.styling_brand .styling_list a.brand_item{margin-bottom: 18px; font-weight: bold; line-height: 1.57;    overflow: hidden; display: -webkit-box; -webkit-line-clamp: 2; word-wrap: break-word; text-overflow: ellipsis; -webkit-box-orient: vertical;}*/
+.styling_brand .styling_list .price{font-family: "Musinsa", sans-serif;font-size:14px;font-weight:normal;overflow: hidden;margin-bottom:18px;}
+.styling_brand .styling_list .price del{padding-left: 5px;font-size: 12px;font-family:"musinsa",sans-serif;color: #b2b2b2;}
+.styling_brand .styling_list .price .discount_price{color:#f42f2b;float: right;}
+.styling_brand .styling_list .option{font-size:26px;font-family: "Musinsa", sans-serif;}
+
+.styling_brand .slick-list{margin-left:-18px;}
+.styling_brand .slick-slide > div{margin-left:18px;}
+.styling_brand .styling_list .box-img{position:relative; background: #f5f5f5; height:272px;overflow: hidden;margin-bottom: 18px; }
+.styling_brand .styling_list .box-img .styling_img{position: absolute;left: 0;top: 50%;width: 100%;transform: translateY(-50%);-webkit-transform: translateY(-50%);}
+.styling_brand .styling_list .like-goods{position: absolute;top: 256px;left: 206px;display: inline-block; width: 30px;height: 30px;background: url(/skin/musinsa/images/icon_like_off_2.png?20181205) no-repeat 0 0;margin-right: 9px;vertical-align: top;background-size: 30px;cursor: pointer;}
+.styling_brand .styling_list .like-goods.active{background: url(/skin/musinsa/images/icon_like_on.png?20181205) no-repeat 0 0;background-size: 30px;}
+
+/*ìƒí’ˆìƒì„¸ - ìŠ¤íƒ€ì¼ë§*/
+.right_contents ul.style_list{margin:24px 0 17px}
+.style_list{overflow: hidden;}
+.style_list .list_item {float: left;padding-right: 19px;}
+.style_list .list_item:last-child{padding-right: 0}
+.style_list .list_item a{display: block;width: 177px;}
+.style_list .list_item a .coordi_img, .style_list .list_item a .staff_img,.style_list .list_item a .street_img{width:100%;height:254px;}
+
+.style_list .list_item .style_title{font-size:12px;font-weight: bold;padding-top: 16px}
+.style_list .list_item .style_txt{font-size:12px;padding-top: 5px}
+.style_list .list_item .coordi_option{font-family: "Musinsa", sans-serif; font-size: 18px; padding-top: 16px; display: block;}
+
+/*ì£¼ë¬¸ ì·¨ì†Œ/í™˜ë¶ˆ ì™„ë£Œ*/
+.n-order-cancel{font-family: "êµ´ë¦¼", Gulim, Arial, sans-serif;padding: 91px 40px 120px;border-bottom: 1px solid #ddd}
+.n-order-cancel .state{text-align: center}
+.n-order-cancel .number{color:#777;font-size:14px;}
+.n-order-cancel .number a{text-decoration: underline}
+.n-order-cancel .state .txt{font-size:32px;color:#000;display: block;font-weight: normal;;margin-top:22px}
+.n-order-cancel .suggest{margin:80px auto 18px;font-size:24px;width:1207px}
+
+.list-rank{margin:0 auto}
+.list-rank .prd-block{width:227px !important;position:relative;margin-left:18px;}
+.list-rank .prd-block .img-block{padding:0; height:272px}
+.list-rank .prd-block .rank{width: 42px;height: 42px;background: #000;color: #fff;display: block;text-align: center;font-size: 17px;line-height: 42px;position: absolute;top: 0;left: 0;z-index: 1;}
+
+.list-rank .slick-list{margin-left: -18px;}
+.list-rank .slick-arrow{display: block;position: absolute;top:117px;z-index: 1000;cursor: pointer;border:none;text-indent:-9999px;overflow: hidden;}
+.list-rank .slick-prev{background: url(/skin/musinsa/images/icon_arrow_left.png?20181112) no-repeat 45% 50%;left: 0%;background-size: 9px 16px;background-color: #fff;width: 34px;height: 34px;}
+.list-rank .slick-next{background: url(/skin/musinsa/images/icon_arrow_right.png?20181112) no-repeat 55% 50%;right:0%;background-size: 9px 16px;background-color: #fff;width: 34px;height: 34px;}
+
+.prd-block .btn-like{position: absolute;top: 257px;right: 10px;border:none}
+.prd-block .info{margin-top:18px}
+.prd-block .info .brand{display:block;font-size:15px;line-height:22px;overflow: hidden;text-overflow: ellipsis;white-space: nowrap;}
+.prd-block .info .name{display:block;font-size:17px;line-height:23px;max-height: 44px;overflow: hidden;white-space: normal;word-break: keep-all;font-weight: normal;margin-top: 6px;}
+.prd-block .price{position:relative;display:block;font-size:14px;font-weight: normal;margin:12px 0 10px;height:20px}
+.prd-block .price .upto{position:absolute;right:0;color:#ff0000}
+.prd-block .price del{font-family: "Musinsa",sans-serif !important; font-size:12px; color:#aaa;padding-left:8px}
+.n-order-cancel .btn-home{font-family: "musinsa",sans-serif !important;font-size: 20px;margin: 30px auto 0;width: 227px;height: 60px;line-height: 63px;display: block;text-align: center;background: #000;color: #fff}
+.n-order-cancel .rank-info{position:relative;width: 1207px;margin: 0 auto;}
+.n-order-cancel .all-content{position:absolute;top:0;right:0;font-size: 14px;border-bottom: 1px solid #000;padding-top: 7px;}

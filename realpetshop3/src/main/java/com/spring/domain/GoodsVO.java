@@ -1,16 +1,17 @@
 package com.spring.domain;
 
-import java.util.Date;
 
 import lombok.Data;
 
 @Data
 public class GoodsVO {
- private int goodsNum;
- private String goodsName;
- private String goodsId;
- private String goodsMainUrl;
- private String goodsUrl;
- private String goodsDate;
- private String goodsInfo;
+ private int goodsNum; // X
+ private String goodsName; // X
+ private String goodsId; // X
+ private String goodsMainUrl; // X
+ private String goodsUrl; // O
+ private String goodsDate; // O
+ private String goodsInfo; // O
+ private long goodsPrice; // X
+ private String goodsPriceFormat;
 }

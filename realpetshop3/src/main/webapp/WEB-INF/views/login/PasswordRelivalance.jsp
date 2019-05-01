@@ -1,111 +1,70 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
-    pageEncoding="UTF-8"%>
-<%@include file="../includes/header.jsp" %>
-<link rel = "stylesheet" href = "/resources/css/gd_common.css" />
-<link rel = "stylesheet" href = "/resources/css/gd_content.css" />
-<link rel = "stylesheet" href = "/resources/css/gd_custom.css" />
-<link rel = "stylesheet" href = "/resources/css/gd_goods-view.css" />
-<link rel = "stylesheet" href = "/resources/css/gd_item-display.css" />
-<link rel = "stylesheet" href = "/resources/css/gd_layout.css" />
-<link rel = "stylesheet" href = "/resources/css/gd_layout.css" />
- <link rel = "stylesheet" href = "/resources/css/gd_share.css" />
+	pageEncoding="UTF-8"%>
+<%@taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c"%>
+<%@include file="../includes/header.jsp"%>
 
-<script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js"></script>
+<link rel="stylesheet"
+	href="https://use.fontawesome.com/releases/v5.8.1/css/all.css"
+	integrity="sha384-50oBUHEmvpQ+1lW4y57PTFmhCaXp0ML5d60M1M7uH2+nqUivzIebhndOJK28anvf"
+	crossorigin="anonymous">
+<meta name="viewport" content="width=device-width, initial-scale=1">
 
 
-    <div id="container">
-        <!-- 본문 시작 : start -->
-        <div id="content">
-<img src="resources/img/logo.png" style="width:300px; margin-left: 350px; margin-top: 50px; " />
-<div class="member find-pw-page" style="padding-left: 30px; padding-top: 0px;">
-    <h2>비밀번호 찾기</h2>
+<!-- <link rel="stylesheet" href="/resources/css/style.css" /> -->
 
-    <div class="box">
-        <form name="formFind" id="formFind" action="" method="post" novalidate="novalidate">
-            <fieldset>
 
-                <h3>아이디, 이메일 입력</h3>
 
-                <p class="guide" style="font-size: small;">비밀번호를 찾고자 하는 아이디, 이메일을 입력해 주세요.</p>
+<div class="container">
+   <div class="no-gutters py-5 row">
+      <div class="col-1 col-sm-4"></div>
+      <div class="col-10 col-sm-4">
+         <div class="text-center">
+<form action="PasswordRelivalance" class="formFindPassword" id="PasswordRelivalance" method="post">
+				               <p class="p">
+                  <i class="fas fa-cat"></i>
+               </p>
 
-                
-                <div class="find-pw" style="padding:0px; border-top: 0px;">
-                    <div class="input-id">
-                        <div class="txt-field">
-                            <input type="email" id="email" name="email" class="text" placeholder="이메일">
-                        </div>
-                        <p class="dn" id="errorMessage"></p>
+                <div class="find-pw">
+                    <div class="input-id">          
+                            <input type="text" id="userid" name="userid" class="form-control" placeholder="아이디">
+                        	<small id="userid" class="text-info"></small>
                     </div>
                 </div>
-                <div class="find-pw" style="padding:0px; border-top: 0px;">
-                    <div class="input-id">
-                        <div class="txt-field">
-                            <input type="text" id="memberId" name="memberId" class="text" placeholder="아이디">
-                        </div>
-                        <p style="font-size: small;">아이디를 모르시나요?<a href="FindID" class="btn-find-id">아이디 찾기</a></p>
-                        <p class="dn" id="errorMessage"></p>
-                    </div>
-                </div>
-                <div class="btn" style="padding-left: 50px; margin-top: 0px;">
-                <div class="btn">
-                    <button class="skinbtn base3 fp-next" type="button" onclick="location.href='#'" style="background-color: red; border-color: red;"><em>비밀번호 찾기</em></button>
-                </div>
-                <div class="btn">
-                    <button class="skinbtn base3 fp-next" type="button" onclick="location.href='login1'" style="background-color: red; border-color: red;"><em>로그인 하러가기</em></button>
-                </div>
-                </div>
-            </fieldset>
-        </form>
-    </div>
+
+                <div class="find-pw">
+                    <div class="input-id">   
+                            <input type="email" id="exampleFormControlInput1" name="email" class="form-control" placeholder="임시 비밀번호 받을 이메일">
+                        	<small id="exampleFormControlInput1" class="text-info"></small>
+                        	<div class="col-md-offset-2 col-md-10"></div>
+
+                        	</div>
+                        	
+                        </div>	
+                        <div class="form-group">
+						    <input type="hidden" class="form-control password" id="exampleFormControlInput1" 
+						    value="${password}" name="password" placeholder="이미지 주소를 입력해주세요">
+						</div>
+						
+						               <input type="submit" class="btn btn-primary btn-block btn-lg gradient" 
+               value="비밀번호찾기"/>
+               <div class="foo">
+                  <div>
+                     <h6>
+                        |<a href="FindID" style="color: black;">아이디 찾기</a>| <a
+                           href="login1" style="color: black;">로그인하기</a>|
+                     </h6>
+                  </div>
+               </div>
+               <div>
+                  <p class="mt-5 mb-3 text-muted">© 2019-01-10~2019-06-20</p>
+               </div>
+            </form>
+         </div>
+      </div>
+      <div class="col-1 col-sm-4"></div>
+   </div>
 </div>
-
-<!-- <script type="text/javascript">
-    $(document).ready(function () {
-        $('input').keyup(function () {
-            $('#errorMessage', 'form').addClass('dn');
-        });
-
-        $('.btn-find-id').click(function (e) {
-            location.href = '../member/find_id.php';
-            e.preventDefault();
-        });
-
-        $('#formFind button[type="submit"]').click(function () {
-            if ($('#formFind').valid() == false) return false;
-        });
-
-        $('#formFind').validate({
-            dialog: false,
-            rules: {
-                memberId: {
-                    required: true
-                }
-            },
-            messages: {
-                memberId: {
-                    required: "아이디를 입력해주세요"
-                }
-            }, submitHandler: function (form) {
-                var data = $(form).serializeArray();
-                data.push({name: "mode", value: "find_member"});
-
-                $.post('../member/find_ps.php', data).done(function (data, textStatus, jqXHR) {
-                    console.log('gd_member ajax', data, textStatus, jqXHR);
-                    var code = data.code;
-                    var message = data.message;
-                    if (_.isUndefined(code) && _.isUndefined(message)) {
-                        form.submit();
-                    } else {
-                        $('#errorMessage', form).removeClass('dn').html('<strong>' + message + '</strong>');
-                    }
-                });
-            }
-        });
-    });
-</script> -->
-</div>
-</div>
-<%@include file="../includes/footer.jsp" %>
-
-
-
+<%@include file="../includes/footer.jsp"%>
+<!-- <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.0/jquery.min.js"></script> -->
+<script src="/resources/js/jquery.validate.js"></script>
+<script src="/resources/js/passwordRelivalance.js"></script>
