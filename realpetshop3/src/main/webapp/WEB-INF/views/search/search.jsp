@@ -8,7 +8,7 @@
 		<dt>브랜드</dt>
 		<dd>
 			<div class="benefit_box"
-				style="position: absolute; overflow: scroll; overflow-x: hidden; height: 300px; width: 220px;">
+				style="position: absolute; overflow: scroll; overflow-x: hidden; height: 320px; width: 220px;">
 				<c:forEach var="vo" items="${list}">
 				<span> <input type="checkbox" id="brand${vo.bno }" name="brand[]" value="${vo.bno }">
 				<label for="${vo.bno }" class="" title="">${vo.pname }</label> <br />
@@ -17,11 +17,11 @@
 			</div>
 		</dd>
 	</dl>
-	<dl style="height: 350px;">
+	<dl style="height: 100px;">
 		<dt>연령</dt>
 		<dd>
 			<div class="benefit_box"
-				style="position: absolute; overflow: scroll; overflow-x: hidden; height: 300px; width: 220px;">
+				style="position: absolute; overflow: scroll; overflow-x: hidden; height: 100px; width: 220px;">
 				<span> <input type="checkbox" id="1old" name="brand[]" value="1old">
 				<label for="1old" class="" title="">1세</label> <br />
 				</span> 
@@ -34,28 +34,34 @@
 			</div>
 		</dd>
 	</dl>
-<dl style="height: 350px;">
+<dl style="height: 150px;">
 		<dt>주원료</dt>
 		<dd>
 			<div class="benefit_box"
-				style="position: absolute; overflow: scroll; overflow-x: hidden; height: 300px; width: 220px;">
-				<span> <input type="checkbox" id="1old" name="old[]" value="1old">
-				<label for="1old" class="" title="">1세</label> <br />
+				style="position: absolute; overflow: scroll; overflow-x: hidden; height: 150px; width: 220px;">
+				<span> <input type="checkbox" id="pork" name="food[]" value="pork">
+				<label for="pork" class="" title="">돼지고기</label> <br />
 				</span> 
-				<span> <input type="checkbox" id="2old" name="old[]" value="2old">
-				<label for="2old" class="" title="">2~5세</label> <br />
+				<span> <input type="checkbox" id="fish" name="food[]" value="fish">
+				<label for="fish" class="" title="">생선</label> <br />
 				</span>
-				<span> <input type="checkbox" id="2old" name="old[]" value="6old">
-				<label for="6old" class="" title="">6~7세</label> <br />
-				</span>  
+				<span> <input type="checkbox" id="cow" name="food[]" value="cow">
+				<label for="cow" class="" title="">소고기</label> <br />
+				</span>
+				<span> <input type="checkbox" id="chicken" name="food[]" value="chicken">
+				<label for="chicken" class="" title="">닭고기</label> <br />
+				</span>
+				<span> <input type="checkbox" id="vegetable" name="food[]" value="vegetable">
+				<label for="vegetable" class="" title="">과일/야채</label> <br />
+				</span>      
 			</div>
 		</dd>
 	</dl>
-	<dl style="height: 350px;">
+	<dl style="height: 200px;">
 		<dt>기능</dt>
 		<dd>
 			<div class="benefit_box"
-				style="position: absolute; overflow: scroll; overflow-x: hidden; height: 300px; width: 220px;">
+				style="position: absolute; overflow: scroll; overflow-x: hidden; height: 150px; width: 220px;">
 				<span> <input type="checkbox" id="diet" name="functions[]" value="diet">
 				<label for="diet" class="" title="">다이어트</label> <br />
 				</span> 
@@ -74,6 +80,4 @@
 			</div>
 		</dd>
 	</dl>
-	
-	</div>
 <%@include file="../includes/footer.jsp"%>
