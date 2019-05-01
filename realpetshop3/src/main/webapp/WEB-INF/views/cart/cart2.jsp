@@ -116,7 +116,7 @@
 												<!-- End of Groobee Order & Cart Selector Script -->
 
                                               <c:forEach var="list" items="${list}">
-												<tr>
+												<tr class="la">
 													<td class="td_chk">
 														<div class="form_element">
 															<input type="checkbox" id="cartSno1_11019"
@@ -154,15 +154,15 @@
 													</td>
 													<td class="td_order_amount">
 														<div class="product-quantity">
-															<input type="number" value="${list.amount}" min="1">
+															<input type="number" value="${list.amount}" min="1" class="amo" role="${list.cartno}">
 														</div>
 													</td>
 													<td style="padding-top: 30px;"><strong
 														class="order_sum_txt price">${list.price}</strong>
 														<p class="add_currency"></p></td>
 													<td class="td_benefit" >
-														<ul class="benefit_list" style="padding-left: 0px">
-														  ${list.money} 원
+														<ul class="benefit_list result_won${list.cartno}" style="padding-left: 0px; margin-bottom: 0px; list-style: none;">
+														  <li >${list.money} 원</li>
 														</ul>
 													</td>
 												</tr>
@@ -171,6 +171,7 @@
 
 										</table>
 									</div>
+
 
 								</div>
 								<!-- //cart_cont_list -->
@@ -185,10 +186,10 @@
 									<div class="price_sum_list">
 										<dl>
 											<dt>
-												총 <strong id="totalGoodsCnt">1</strong> 개의 상품금액
+												총 <strong id="totalGoodsCnt">${size}</strong> 개의 상품금액
 											</dt>
 											<dd>
-												<strong id="totalGoodsPrice">24,000</strong>원
+												<strong id="totalGoodsPrice">${Totl}</strong>원
 											</dd>
 										</dl>
 										<dl style="padding: 0 0">
@@ -199,7 +200,7 @@
 										<dl>
 											<dt>배송비</dt>
 											<dd>
-												<strong id="totalDeliveryCharge">2,500</strong>원
+												<strong id="totalDeliveryCharge">0</strong>원
 											</dd>
 										</dl>
 										<dl style="padding: 0 0">
@@ -209,9 +210,12 @@
 										</dl>
 										<dl class="price_total">
 											<dt>합계</dt>
+											<dd>
+									         <em id="deliveryChargeText" class="tobe_mileage won" style="padding-bottom: 2%" role="${Totl}">${Totl} 원</em>
+											</dd>
 										</dl>
 									</div>
-									<em id="deliveryChargeText" class="tobe_mileage"></em>
+									
 								</div>
 								<!-- //price_sum_cont -->
 							</div>
@@ -255,6 +259,45 @@
 		<!-- //본문 끝 contents -->
 	</div>
 </div>
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.0/jquery.min.js"></script>
+<script>
+ $(function() {
+		var amoVal = $(".amo").val();
+	$(".amo").change(function() {
+		var amountVal = $(this).val();
+		var cartnoVal = $(this).attr("role");
+		var s = ".result_won"+cartnoVal;
+		//var re = find(s);
+		var won = $(".won").attr("role"); 
+		console.log(won);
+		$.post({
+			url:"/amountM",
+			data : JSON.stringify({
+				amount : amountVal,
+				cartno : cartnoVal
+			}),
+			dataType:"json",
+			contentType : 'application/json;charset=utf-8',
+			success: function(result) {
+				console.log(result);
+				var resd = (result.amount);
+				console.log(resd);
+				var tol = (resd-amoVal);
+				var tad = won*tol;
+				$(s).text(result.money+" 원");
+				$(".won").text(tad+" 원");
+			},
+			error:function(request,status,error){
+				alert(request.responseText)
+			}
+		});
+		
+		
+		
+	   
+	});
+});
+</script>
 
 
 <%@include file="../includes/footer.jsp"%>
