@@ -6,7 +6,8 @@ create table test_goods(
  goodsUrl nvarchar2(2000) ,
  goodsDate date DEFAULT sysdate,
  goodsInfo nvarchar2(200) ,
- goodsPrice number not null
+ goodsPrice number not null ,
+ category varchar2(20) not null
 );
 create table test_goods_trash(
  goodsNum number(10) primary key,
@@ -17,6 +18,7 @@ create table test_goods_trash(
  goodsDate date DEFAULT sysdate,
  goodsInfo nvarchar2(200) ,
  goodsPrice number not null,
+ category varchar2(20) not null,
  trashDate date default sysdate,
  printTrashDate nvarchar2(10)
 );
@@ -42,8 +44,11 @@ create table test_request_goods(
  goodsUrl nvarchar2(2000) ,
  goodsDate date DEFAULT sysdate,
  goodsInfo nvarchar2(200) ,
- goodsPrice number not null
+ goodsPrice number not null,
+ category varchar2(20) not null
 );
+
+drop table test_request_goods;
 
 create sequence goodsNum_resq;
 

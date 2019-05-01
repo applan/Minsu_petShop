@@ -7,8 +7,9 @@
 	</delete>
   
  <insert id="insert">
-   insert into test_goods(goodsNum, goodsName, goodsId, goodsMainUrl, goodsUrl, goodsDate, goodsInfo, goodsPrice) 
-   values(goodsNum_sq.nextVal, #{goodsName}, #{goodsId}, #{goodsMainUrl}, #{goodsUrl , jdbcType=VARCHAR}, #{goodsDate , jdbcType=DATE}, #{goodsInfo , jdbcType=VARCHAR}, #{goodsPrice})
+   insert into test_goods(goodsNum, goodsName, goodsId, goodsMainUrl, goodsUrl, goodsDate, goodsInfo, goodsPrice,category) 
+   values(goodsNum_sq.nextVal, #{goodsName}, #{goodsId}, #{goodsMainUrl}, #{goodsUrl , jdbcType=VARCHAR}, #{goodsDate , jdbcType=DATE}, #{goodsInfo , jdbcType=VARCHAR}, #{goodsPrice}
+   ,#{category})
  </insert>
  
  <update id="modify_authority">
@@ -53,8 +54,9 @@
  </select>
  
   <insert id="insertTrash_goods">
-   insert into test_goods_trash(goodsNum, goodsName, goodsId, goodsMainUrl, goodsUrl, goodsDate, goodsInfo, goodsPrice) 
-   values(#{goodsNum}, #{goodsName}, #{goodsId}, #{goodsMainUrl}, #{goodsUrl , jdbcType=VARCHAR}, #{goodsDate , jdbcType=DATE}, #{goodsInfo , jdbcType=VARCHAR}, #{goodsPrice})
+   insert into test_goods_trash(goodsNum, goodsName, goodsId, goodsMainUrl, goodsUrl, goodsDate, goodsInfo, goodsPrice,category) 
+   values(#{goodsNum}, #{goodsName}, #{goodsId}, #{goodsMainUrl}, #{goodsUrl , jdbcType=VARCHAR}, #{goodsDate , jdbcType=DATE}, #{goodsInfo , jdbcType=VARCHAR}, #{goodsPrice},
+   #{category})
  </insert>
  
  <select id="getMember" resultType="com.spring.domain.UserVO">
@@ -92,8 +94,9 @@
  </select>
  
   <insert id="Reinsert_goods">
-   insert into test_goods(goodsNum, goodsName, goodsId, goodsMainUrl, goodsUrl, goodsDate, goodsInfo, goodsPrice) 
-   values(#{goodsNum}, #{goodsName}, #{goodsId}, #{goodsMainUrl}, #{goodsUrl , jdbcType=VARCHAR}, to_DATE(#{goodsDate , jdbcType=DATE},'yyyy-MM-dd'), #{goodsInfo , jdbcType=VARCHAR}, #{goodsPrice})
+   insert into test_goods(goodsNum, goodsName, goodsId, goodsMainUrl, goodsUrl, goodsDate, goodsInfo, goodsPrice, category) 
+   values(#{goodsNum}, #{goodsName}, #{goodsId}, #{goodsMainUrl}, #{goodsUrl , jdbcType=VARCHAR}, to_DATE(#{goodsDate , jdbcType=DATE},'yyyy-MM-dd'), #{goodsInfo , jdbcType=VARCHAR}, #{goodsPrice},
+   #{category})
  </insert>
  
    <insert id="Reinsert_members">
