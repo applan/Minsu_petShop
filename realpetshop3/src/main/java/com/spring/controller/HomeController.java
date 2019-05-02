@@ -13,24 +13,25 @@ import lombok.extern.slf4j.Slf4j;
 @Slf4j
 @Controller
 public class HomeController {
-   
-   
-   
-   @RequestMapping(value = "/", method = RequestMethod.GET)
-   public String home() {
-      
-      
-      return "home";
-   }
-   
-   @GetMapping("/view")
-   public void view() {
-      log.info("main page 호출...");
-   }
-   @GetMapping("/search")
-   public String search() {
-      log.info("검색 화면 호출");
-      return "search/search";
-   }
-   
+	
+	
+	
+	@RequestMapping(value = "/", method = RequestMethod.GET)
+	public String home() {
+		
+		
+		return "home";
+	}
+	
+	@GetMapping("/view")
+	public void view() {
+		log.info("main page 호출...");
+	}
+	@GetMapping("/search")
+	public String search() {
+		log.info("검색 화면 호출");
+		return "search/search";
+	}
+	
+	
 }

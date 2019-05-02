@@ -36,8 +36,8 @@ public class UserServiceImpl implements UserService {
 	}
 
 	@Override
-	public int deleteMember(AuthInfo info) {
-		return mapper.deleteMember(info);
+	public int deleteMember(sessionVO vo5) {
+		return mapper.deleteMember(vo5);
 	}
 
 	@Override

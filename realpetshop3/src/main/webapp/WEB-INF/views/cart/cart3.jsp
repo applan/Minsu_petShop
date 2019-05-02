@@ -9,7 +9,11 @@
 	crossorigin="anonymous">
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <script langauge="javascript">
-     window.open("/payment","결제화면","width=300,height=300");
+var newWindow;
+function openNewWindow(){
+    var data = document.querySelector('#gogo()').value;
+}
+    window.open("/payment","결제화면","width=500,height=500");
 	opener.document.location.reload();
 	self.close();
 
@@ -33,13 +37,13 @@
 						<div class="order_tit">
 							<p>장바구니</p>
 							<ol>
-								<li class="page_next" id="cart1"><span>01 </span>장바구니 <i
+								<li class="page_next"><span>01 </span>장바구니 <i
 									class="fas fa-chevron-right"></i> <span><img src="#"
 										alt=""></span></li>
-								<li class="page_on" id="cart2"><span>02 </span>주문서작성/결제 <i
+								<li class="page_on"><span>02 </span>주문서작성/결제 <i
 									class="fas fa-chevron-right"></i> <span><img src="#"
 										alt=""></span></li>
-								<li class="page_next" id="cart3"><span>03 </span>주문완료 <i
+								<li class="page_next"><span>03 </span>주문완료 <i
 									class="fas fa-chevron-right"></i></li>
 							</ol>
 						</div>
@@ -120,16 +124,16 @@
 
 												<!-- End of Groobee Order & Cart Selector Script -->
 
-                                              <c:forEach var="i" begin="0" end="3">
-												<tr>
+                                              <c:forEach var="list" items="${list}">
+												<tr class="la">
 													<td class="td_chk">
 														<div class="form_element">
 															<input type="checkbox" id="cartSno1_11019"
 																name="cartSno[]" value="11019" checked="checked"
 																data-price="24000" data-mileage="0" data-goodsdc="0"
 																data-memberdc="0" data-coupondc="0" data-possible="y"
-																data-goods-key="0" data-goods-no="16771"
-																data-goods-nm="[1+1증정]스튜어트 동결건조 닭가슴살 파우치 85g"
+																data-goods-key="0" data-goods-no=""
+																data-goods-nm="${list.goodsname}"
 																data-option-nm="" data-fixed-sales="option"
 																data-sales-unit="1" data-fixed-order-cnt="option"
 																data-min-order-cnt="1" data-max-order-cnt="0"
@@ -139,8 +143,8 @@
 													</td>
 													<td class="td_left">
 														<div class="pick_add_cont">
-															<span class="pick_add_img"><a href="#"><img
-																	src="https://www.petbox.kr/data/goods/19/03/12//16941/register_detail_087.jpg" width="40" alt="[1+1증정]스튜어트 동결건조 닭가슴살 파우치 85g"
+															<span class="pick_add_img"><a href="/GoodsInfoView?goodsnum=${list.goodsnum}"><img
+																	src="${list.goodsMainUrl}" width="40" alt="${list.goodsname}"
 																	class="middle">${list.goodsname}</a>
 															</span>
 															<div class="pick_add_info">
@@ -158,24 +162,29 @@
 
 													</td>
 													<td class="td_order_amount">
-														<div class="product-quantity">
-															<input type="number" value="1" min="1">
+														<div class="product-quantity" style="display: flex;">
+														    <input type="button" style="height: 30px; width: 30px; margin: 10px 4px" value="-" class="minus" role="${list.cartno}"/>
+															<input type="number" value="${list.amount}" min="1" class="amo${list.cartno} amoo" role="${list.cartno}" readonly="readonly">
+														    <input type="button" style="height: 30px; width: 30px; margin: 10px 4px" value="+" class="plus" role="${list.cartno}"/>
 														</div>
+														
 													</td>
 													<td style="padding-top: 30px;"><strong
-														class="order_sum_txt price">${list.price}</strong>
+														class="order_sum_txt price${list.cartno}" role="${list.price }">${list.price}</strong>
 														<p class="add_currency"></p></td>
-													<td class="td_benefit">
-														<ul class="benefit_list">
+													<td class="td_benefit" >
+														<ul class="benefit_list result_won${list.cartno}" style="padding-left: 0px; margin-bottom: 0px; list-style: none;">
+														  <li >${list.money} 원</li>
+														  <input type="hidden" value="${list.totals}"/>
 														</ul>
 													</td>
 												</tr>
                                              </c:forEach>
 											</tbody>
 
-
 										</table>
 									</div>
+
 
 								</div>
 								<!-- //cart_cont_list -->
@@ -190,10 +199,10 @@
 									<div class="price_sum_list">
 										<dl>
 											<dt>
-												총 <strong id="totalGoodsCnt">1</strong> 개의 상품금액
+												총 <strong id="totalGoodsCnt" class="cou">${size}</strong> 개의 상품금액
 											</dt>
 											<dd>
-												<strong id="totalGoodsPrice">24,000</strong>원
+												<strong id="totalGoodsPrice" class="won2">${Totl}</strong>원
 											</dd>
 										</dl>
 										<dl style="padding: 0 0">
@@ -204,7 +213,7 @@
 										<dl>
 											<dt>배송비</dt>
 											<dd>
-												<strong id="totalDeliveryCharge">2,500</strong>원
+												<strong id="totalDeliveryCharge">0</strong>원
 											</dd>
 										</dl>
 										<dl style="padding: 0 0">
@@ -214,9 +223,12 @@
 										</dl>
 										<dl class="price_total">
 											<dt>합계</dt>
+											<dd>
+									         <em id="deliveryChargeText" class="tobe_mileage won" style="padding-bottom: 2%" role="${Totl}">${Totl} 원</em>
+											</dd>
 										</dl>
 									</div>
-									<em id="deliveryChargeText" class="tobe_mileage"></em>
+									
 								</div>
 								<!-- //price_sum_cont -->
 							</div>
@@ -238,19 +250,13 @@
 									<div class="col-4"></div>
 
 									<div class="col-4 btn_right_box text-right">
-										<button type="button" id="orderbutton"
-											class="btn btn-danger btn-lg gradient btn_order_choice_buy"
-											onclick="gd_cart_process('orderSelect');">선택 상품 주문</button>
-										<button type="button" id="orderbutton"
-											class="btn btn-danger btn-lg gradient btn_order_whole_buy"
-											onclick="gd_order_all();">전체 상품 주문</button>
+										<button type="button"
+											class="btn btn-danger gogo btn-lg gradient btn_order_whole_buy"
+											onclick="location.href='/cart/cart2'">취소/이전화면으로 돌아가기</button>
 									</div>
 								</div>
 							</div>
 							<!-- //btn_order_box -->
-							<script>
-							
-							</script>
 						</div>
 						<!-- //cart_cont -->
 					</div>
@@ -263,20 +269,4 @@
 		<!-- //본문 끝 contents -->
 	</div>
 </div>
-
-
 <%@include file="../includes/footer.jsp"%>
-
-
-
-
-
-
-
-
-
-
-
-
-
-

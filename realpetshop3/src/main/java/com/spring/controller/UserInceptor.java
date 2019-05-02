@@ -1,0 +1,55 @@
+package com.spring.controller;
+
+import javax.servlet.http.HttpServletRequest;
+import javax.servlet.http.HttpServletResponse;
+import javax.servlet.http.HttpSession;
+
+import org.springframework.web.servlet.ModelAndView;
+import org.springframework.web.servlet.handler.HandlerInterceptorAdapter;
+
+import com.spring.domain.sessionVO;
+
+
+public class UserInceptor extends HandlerInterceptorAdapter {
+	
+	@Override
+	public boolean preHandle(HttpServletRequest request, HttpServletResponse response, Object handler) throws Exception {
+	 
+	  boolean masterFlag = false;
+	 
+	  System.out.println("Login Interceptor");
+	  
+	  HttpSession session = request.getSession();
+	  sessionVO vo5 = (sessionVO)session.getAttribute("vo5");
+	  session.setAttribute("vo5",vo5);
+	  
+	  if(request.getSession().getAttribute("vo5") != null && "1".equals(vo5.getNum())){
+	               // 세션 ID가 존재하고, 등급이 1이 아니라면
+	         
+	    System.out.println("User");      // user 인증
+	    masterFlag = true;
+	       
+	  }
+	  else if(request.getSession().getAttribute("vo5") == null || "2".equals(vo5.getNum()) || "3".equals(vo5.getNum())){     // 세션 ID가 존재치 않거나, 등급이 1이 아니라면
+	          
+	    System.out.println("User!");     // user 미인증
+	    response.sendRedirect(request.getContextPath()+"/");  
+	                                            // 해당 페이지로 보내기
+	    masterFlag = false;
+	  }
+	 
+	  return masterFlag;
+	 }
+	 
+	 @Override
+	 public void postHandle(HttpServletRequest request, HttpServletResponse response, Object handler,  ModelAndView modelAndView) throws Exception {
+	       
+	    super.postHandle(request, response, handler, modelAndView);
+	 }
+	 
+	 @Override
+	 public void afterCompletion(HttpServletRequest request, HttpServletResponse response, Object handler, Exception ex) throws Exception {
+	    super.afterCompletion(request, response, handler, ex);
+	 } 
+	} 
+
