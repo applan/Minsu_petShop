@@ -148,6 +148,19 @@
 		location.href="/adminChoicePage_delete";
 	}
 	
+	// 판매자 상품 요청 시 결과
+	var res10 = "${result_requestG}";
+	if(res10 === "true"){
+		alert("관리자에게 요청 성공했습니다.");
+		res10 = "";
+		location.href="/requestPage";
+	}
+	if(res10 === "false"){
+		alert("관리자에게 요청 실패했습니다.");
+		res10 = "";
+		location.href="/requestPage";
+	}
+	
 });
 </script>
 </body>

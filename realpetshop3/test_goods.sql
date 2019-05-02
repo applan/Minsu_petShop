@@ -69,17 +69,19 @@ insert into test_goods values(goodsNum_sq.nextVal,
 1000
 );
 insert into test_request_goods values(goodsNum_resq.nextVal,
-'강아지 사료', 
-'김파파', 
+'새로운 상품이 왔습니다.', 
+'cms4861', 
 'http://postfiles9.naver.net/20160205_296/bon24amc_1454666068969GKlx6_PNG/1.png?type=w1',
-'http://mblogthumb1.phinf.naver.net/MjAxNjEyMTFfMTU4/MDAxNDgxNDQyODM4ODk1.mUa2qGI1TyFtZAfTGbRb_rbXai_4B2hdC6CQlN_SAwUg.okzeGpBHP6-fynL44YLmrKAjinpUk5sAVbhDcimenbog.JPEG.teamdable/%EB%B0%B0%EB%84%88%EA%B4%91%EA%B3%A0_%EB%84%A4%EC%9D%B4%ED%8B%B0%EB%B8%8C%EA%B4%91%EA%B3%A0.jpg?type=w800',
-'2019-04-27',
-'새로운 개 사료 추가 됌!',
-100000000
+'http://gdimg.gmarket.co.kr/641044863/still/600?ver=0',
+'2019-05-22',
+'asdsadsadsad 상품 등록해주세요~',
+123123123,
+'장난감'
 );
 
-
-
+drop table test_request_goods;
+create sequence goodsNum_resq;
+drop sequence goodsNum_resq;
 create table test_user(
  userNum number(10) primary key,
  userId nvarchar2(40) not null,
