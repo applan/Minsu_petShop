@@ -6,14 +6,11 @@ import javax.servlet.http.HttpSession;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
-import org.springframework.transaction.annotation.Transactional;
 import org.springframework.ui.Model;
 import org.springframework.validation.BindingResult;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.PostMapping;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.ResponseBody;
 import org.springframework.web.bind.annotation.SessionAttributes;
 import org.springframework.web.bind.support.SessionStatus;
@@ -174,7 +171,12 @@ public class LoginController {
 	@GetMapping("/DeleteId")
 	public String leave(HttpSession session, SessionStatus status, Model model) {
 		//userid가 일치하는 회원 탈퇴
-
+		
+		
+		
+		
+		
+		
 		AuthInfo info = new AuthInfo();
 		sessionVO vo5 = (sessionVO)session.getAttribute("vo5");
 		
@@ -195,39 +197,14 @@ public class LoginController {
 		AuthInfo info = new AuthInfo();
 		sessionVO vo5 = (sessionVO)session.getAttribute("vo5");
 		
+		log.info("ff"+vo5.getNum()+" "+vo5.getUserno());
+		
 		info = service.edit(vo5);
 		
 		model.addAttribute("info", info);
-
+		
 		return "/login/EditPersonalInformation";
 	}
-	
-//	//LoginVO	
-//	@GetMapping("/EditPersonalInformation")
-//	public String EditPersonalInformation(HttpSession session, Model model, RedirectAttributes rttr,ChangeVO vo) {
-//		
-//		log.info("개인정보 수정...");
-//
-//		return "/login/EditPersonalInformation";
-//	}
-	
-	
-	@Transactional
-	@PostMapping(value="/EditPersonalInformation")
-	public String EditPersonalInformation1(HttpSession session, Model model, RedirectAttributes rttr,ChangeVO vo, UserVO vo1) {
-	log.info("히히");
-
-     int result = service.updateMember(vo);
-	 if(result >0) {
-		 model.addAttribute("vo", vo);
-	 return "redirect:/";
-	}
-	 
-	return "/login/EditPersonalInformation";
-}
-	
-	
-	
 
 
 //	@PostMapping(value= "/EditPersonalInformation")

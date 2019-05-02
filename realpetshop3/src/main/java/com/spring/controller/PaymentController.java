@@ -32,19 +32,17 @@ public class PaymentController {
 	@GetMapping("/paymentsuccess")
 	public String paymentsuccess(Model model) {
 		log.info("결제 성공!!");
-		/*
-		 * List<ShopVO> list = new ArrayList<ShopVO>(); 
-		 * ShopVO vo=new ShopVO();
-		 * vo.setProductname("개 사료"); 
-		 * vo.setMonth("1"); 
-		 * vo.setPaymentdata("카카오페이");
-		 * vo.setResult(true); 
-		 * vo.setResult2(vo.isResult()); 
-		 * vo.setMoney(10000);
-		 * vo.setSummoney(vo.getMoney()); 
-		 * list.add(vo); 
-		 * model.addAttribute("list",list);
-		 */
+		List<ShopVO> list = new ArrayList<ShopVO>();
+		ShopVO vo=new ShopVO();
+		vo.setProductname("개 사료");
+		vo.setMonth("1");
+		vo.setPaymentdata("카카오페이");
+		vo.setResult(true);
+		vo.setResult2(vo.isResult());
+		vo.setMoney(10000);
+		vo.setSummoney(vo.getMoney());
+		list.add(vo);
+		model.addAttribute("list",list);
 		return "/payment/paymentsuccess";
 	}
 	@GetMapping("/home")
