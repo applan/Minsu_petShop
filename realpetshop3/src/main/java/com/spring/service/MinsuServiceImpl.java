@@ -38,6 +38,10 @@ public class MinsuServiceImpl implements MinsuService {
 		return mapper.getList_member();
 	}
 	
+	@Override
+	public int delete_reques(int goodsNum) {
+		return mapper.delete_reques(goodsNum);
+	}
 	
 	@Override
 	@Transactional
@@ -129,6 +133,7 @@ public class MinsuServiceImpl implements MinsuService {
 		if(vo.getGoodsDate() != null) {invo.setGoodsDate(vo.getGoodsDate().substring(0,10));}
 		if(vo.getGoodsInfo() != null) {invo.setGoodsInfo(vo.getGoodsInfo());}
 		invo.setGoodsPrice(vo.getGoodsPrice());
+		invo.setCategory(vo.getCategory());
 		mapper.Reinsert_goods(invo);
 		return mapper.permanently_Delete_goods(goodsNum);
 	}
@@ -147,6 +152,10 @@ public class MinsuServiceImpl implements MinsuService {
 	public GoodsVO getGood(int goodsNum) {
 		return mapper.getGood(goodsNum);
 	}
+
+
+
+
 
 
 

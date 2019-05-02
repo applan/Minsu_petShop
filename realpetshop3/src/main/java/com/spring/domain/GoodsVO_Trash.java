@@ -18,4 +18,5 @@ public class GoodsVO_Trash {
  private String goodsPriceFormat;
  private Date trashDate;
  private String printTrashDate;
+ private String category;
 }

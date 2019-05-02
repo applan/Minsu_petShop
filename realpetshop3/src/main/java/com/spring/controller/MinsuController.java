@@ -269,4 +269,16 @@ public class MinsuController {
     	return "management/result_Page";
     }
     
+    @GetMapping("/delete_request")
+    public String delete_request(int goodsNum,Model model) {
+    	log.info("delete_request..."+goodsNum);
+    	int result = minService.delete_reques(goodsNum);
+    	if(result >0) {
+    		model.addAttribute("result_permanently_Delete_request", "true");
+    	}else {
+    		model.addAttribute("result_permanently_Delete_request", "false");
+    	}
+    	return "management/result_Page";
+    }
+    
 }

@@ -33,7 +33,7 @@
 			
 		</div>
 	</div>
-	<form action="" method="post">
+	<form action="" method="post" class="form12">
 	<!-- 상품 카테고리 넣기  -->
 		<div>
 		     <div style="display: flex;">
@@ -41,15 +41,32 @@
 		     <label for="en_da" id="en_da" style="margin-left: 10%; padding-top: 20px;"><- 상품 계약 기간 -></label>
 		     </div>
 		     <div style="display: flex;">
-			<input type="text" class="form-control" placeholder="상품 제목을 입력해주세요" id="en" required="required" style="width: 45%;" name="goodsName">
+			<input type="text" class="form-control title" placeholder="상품 제목을 입력해주세요" id="en" required="required" style="width: 45%;" name="goodsName">
 			<input type="date" style="margin-left: 10%" id="en_da" name="goodsDate" min="${toDay}"/>
+			</div>
+			
 			</div>
 		</div>
 		
-		<div style="padding-top: 2%; padding-right: 55%">
-		   <label for="en_b" id="en_b"><- 판매자 아이디 -></label>
-		   <input type="text"  class="form-control" placeholder="판매자 아이디를 넣어주세요" id="en_b" required="required" name="goodsId"/>
+		<div style="padding-top: 2%; display: flex;">
+		   <label for="en_b" id="en_b" style="width: 45%"><- 판매자 아이디 -></label>
+		   <label for="en_da" id="en_da" style="margin-left: 10%; padding-top: 20px;"><- 카테고리 -></label>
 		</div>
+		<div style="display: flex;">
+		   <input type="text"  class="form-control sellid" placeholder="판매자 아이디를 넣어주세요" id="en_b" required="required" name="goodsId" style="width: 45%;"/>
+			<select name="category" style="margin-left: 10%" id="en_da" class="sele">
+			  <option value="nob">------</option>
+			  <option value="사료">사료</option>
+			  <option value="간식">간식</option>
+			  <option value="장난감">장난감</option>
+			  <option value="건강식품">건강식품</option>
+			  <option value="용품">용품</option>
+			  <option value="하우스">하우스</option>
+			  <option value="이동장">이동장</option>
+			  <option value="의류">의류</option>
+			  <option value="악세사리">악세사리</option>
+			</select>
+			</div>
 		
 		<div style="padding-top: 2%; padding-right: 55%">
 		   <label for="en_b" id="en_b"><- 상품 가격 -></label>
@@ -58,7 +75,7 @@
 		
 		<div style="padding-top: 2%; padding-right: 55%">
 		   <label for="en_b" id="en_b"><- 상품 이미지 링크 -></label>
-		   <input type="text"  class="form-control" placeholder="상품의 이미지 링크를 넣어주세요" id="en_b" required="required" name="goodsMainUrl"/>
+		   <input type="text"  class="form-control imgUrl" placeholder="상품의 이미지 링크를 넣어주세요" id="en_b" required="required" name="goodsMainUrl"/>
 		</div>
 		
 		<div style="padding-top: 2%; padding-right: 55%">
@@ -72,7 +89,7 @@
 		</div>
 		
 		<div style="padding-top: 40px;">
-			<button type="submit" class="btn btn-success" id="sum">등록</button>
+			<button type="button" class="btn btn-success" id="sum">등록</button>
 		</div>
 	</form>
 </div>
@@ -85,7 +102,28 @@
 			$(".price").val(0); 
 			$(".price").focus();
 	}
-	})
+	});
+	$("#sum").click(function(e) {
+		e.preventDefault();
+		if($(".sele").val()==="nob"){
+			alert("카테고리를 선택해주세요");
+		    $(".sele").focus();
+		}
+		if($(".title").val().trim() === ""){
+			alert("상품 제목을 입력해주세요.");
+			$(".title").focus();
+		}
+		if($(".sellid").val().trim() === ""){
+			alert("판매자 아이디를 입력해주세요.");
+			$(".sellid").focus();
+		}
+		if($(".imgUrl").val().trim() === ""){
+			alert("상품 MainUrl을 입력해주세요");
+			$(".imgUrl").focus();
+		}
+
+		$(".form12").submit();
+	});
 });
 </script>
 

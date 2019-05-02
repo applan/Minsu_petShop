@@ -14,4 +14,5 @@ public class GoodsVO {
  private String goodsInfo; // O
  private long goodsPrice; // X
  private String goodsPriceFormat;
+ private String category;
 }
