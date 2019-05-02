@@ -10,7 +10,7 @@
 <insert id="registMember">
 		insert into pet_user(userno,userid,password,username,addr,email,cat,dog,emailcheck)
 		values(rno_seq.nextVal,#{userid},#{password},#{username},#{addr},#{email},
-		#{cat,jdbcType=VARCHAR},#{dog,jdbcType=VARCHAR},#{emailcheck,jdbcType=CHAR})
+		#{cat,jdbcType=VARCHAR},#{dog,jdbcType=VARCHAR},#{emailcheck,jdbcType=VARCHAR})
 </insert>
 
 <!-- 회원 로그인  -->
@@ -27,7 +27,7 @@
 <!--비밀번호 바꾸기  -->
 <update id ="updateMember">
 	update pet_user set password=#{new_password}, addr=#{new_addr}, 
-	dog=#{dog,jdbcType=VARCHAR}, cat=#{cat,jdbcType=VARCHAR}, email=#{new_email}, emailcheck=#{emailcheck,jdbcType=CHAR}
+	dog=#{dog,jdbcType=VARCHAR}, cat=#{cat,jdbcType=VARCHAR}, email=#{new_email}, emailcheck=#{emailcheck,jdbcType=VARCHAR}
 	where  userid =#{userid} and username=#{username}
 </update>
 
@@ -42,4 +42,5 @@
 <select id="edit" resultType="com.spring.domain.AuthInfo">
 	select userid, username, addr, cat, dog, email, emailcheck from pet_user where userno=#{userno} and num=#{num}
 </select>
+
 </mapper>

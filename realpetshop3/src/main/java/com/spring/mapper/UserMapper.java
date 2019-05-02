@@ -19,8 +19,6 @@ public interface UserMapper {
 	public int deleteMember(sessionVO vo5);
 	//개인정보 변경
 	public int updateMember(ChangeVO vo);
-	//개인정보 변경
-	public int updateMembers(ChangeVO vo);
 	//아이디 찾기
 	public UserVO useridfind(UserVO vo);
 	//비밀번호 찾기

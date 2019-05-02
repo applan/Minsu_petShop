@@ -58,11 +58,11 @@
 			<div class="col-sm-6 text-left">
 				<div class="form-check form-check-inline">
 					<input type="radio" id="cat" name="cat" value="cat"
-						class="form-check-input" />고양이
+						class="form-check-input" ondblclick="this.checked=false"/>고양이
 				</div>
 				<div class="form-check form-check-inline">
 					<input type="radio" id="dog" name="dog" value="dog"
-						class="form-check-input" />강아지
+						class="form-check-input" ondblclick="this.checked=false"/>강아지
 				</div>
 				<small id="gender" class="text-info"></small>
 			</div>
@@ -74,8 +74,7 @@
 			<input type="email" name="email" id="email"  class="form-control" placeholder="example@gmail.com"/>
 
 
-				<input type="radio" name="emailcheck" id="emailcheck"value="1"/> 동의 
-					
+				<input type="radio" name="emailcheck" id="emailcheck"value="1" ondblclick="this.checked=false"/> 동의 
 				<div>
 					<p></p>
 					<h6>동의시 이벤트 사항을 이메일로 보내줍니다.</h6>

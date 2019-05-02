@@ -3,6 +3,11 @@
 <%@taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c"%>
 <%@include file="includes/header.jsp"%>
 <!-- carousel -->
+
+
+
+
+
 <div id="wrapper" class="container">
 	<div class="border" style="margin-bottom: 10px;"></div>
 	<div id="content">
