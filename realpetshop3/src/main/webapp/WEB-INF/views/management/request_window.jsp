@@ -7,7 +7,11 @@
 <title>Pet Shop</title>
 </head>
 <body>
- <table border="2px solid">
+ <table border="2px solid"> 
+   <tr>
+     <th>[상품 번호]</th>
+     <td>${request_vo.goodsNum}</td>
+   </tr>
    <tr>
      <th>[상품 이름]</th>
      <td>${request_vo.goodsName}</td>
@@ -15,6 +19,10 @@
    <tr>
      <th>[판매자 아이디]</th>
      <td>${request_vo.goodsId}</td>
+   </tr>
+   <tr>
+     <th>[카테고리]</th>
+     <td>${request_vo.category}</td>
    </tr>
    <tr>
      <th>[상품 이미지 URL]</th>

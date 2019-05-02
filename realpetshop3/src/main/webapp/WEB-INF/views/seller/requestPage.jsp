@@ -1,11 +1,10 @@
-
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
-<%@include file="../includes/header_admin.jsp" %>
-
+<%@include file="../includes/header.jsp" %>
 <style>
  .all_b{
   padding-top: 20px;
+  margin: auto 20%;
  }
  #en_a{
   margin-top: 20px;
@@ -26,13 +25,13 @@
 </style>
 
 <div class="all_b">
-
 	<div style="display: flex; justify-content: space-between;">
 		<div>
 			<h1 style="font-family: 'Jua', sans-serif; font-size: 55px;" >상품 등록</h1>
 			
 		</div>
 	</div>
+	<div>
 	<form action="" method="post" class="form12">
 	<!-- 상품 카테고리 넣기  -->
 		<div>
@@ -41,12 +40,12 @@
 		     <label for="en_da" id="en_da" style="margin-left: 10%; padding-top: 20px;"><- 상품 계약 기간 -></label>
 		     </div>
 		     <div style="display: flex;">
-			<input type="text" class="form-control title" placeholder="상품 제목을 입력해주세요" id="en" required="required" style="width: 45%;" name="goodsName">
+			<input type="text" class="form-control tit" placeholder="상품 제목을 입력해주세요" id="en" required="required" style="width: 45%;" name="goodsName">
 			<input type="date" style="margin-left: 10%" id="en_da" name="goodsDate" min="${toDay}"/>
 			</div>
 			
-			</div>
-		</div>
+	    </div>
+		
 		
 		<div style="padding-top: 2%; display: flex;">
 		   <label for="en_b" id="en_b" style="width: 45%"><- 판매자 아이디 -></label>
@@ -66,7 +65,7 @@
 			  <option value="의류">의류</option>
 			  <option value="악세사리">악세사리</option>
 			</select>
-			</div>
+	    </div>
 		
 		<div style="padding-top: 2%; padding-right: 55%">
 		   <label for="en_b" id="en_b"><- 상품 가격 -></label>
@@ -92,7 +91,9 @@
 			<button type="button" class="btn btn-success" id="sum">등록</button>
 		</div>
 	</form>
+	</div>
 </div>
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
 <script>
  $(function() {
 	$(".price").change(function() {
@@ -101,7 +102,7 @@
 			alert("가격은 음수값을 넣을 수 없습니다.");
 			$(".price").val(0); 
 			$(".price").focus();
-			return;
+			return;	
 	}
 	});
 	$("#sum").click(function(e) {
@@ -111,7 +112,7 @@
 		    $(".sele").focus();
 		    return;
 		}
-		if($(".title").val().trim() === ""){
+		if($(".tit").val().trim() === ""){
 			alert("상품 제목을 입력해주세요.");
 			$(".title").focus();
 			return;
@@ -128,8 +129,8 @@
 		}
 
 		$(".form12").submit();
+		
 	});
 });
 </script>
-
-<%@include file="../includes/footer_admin.jsp" %>
+<%@include file="../includes/footer.jsp" %>
