@@ -58,6 +58,7 @@ public class PaymentController {
 	@GetMapping("/cart3")
 	public String cart3() {
 		log.info("주문 결제화면");
+		
 		return "cart/cart3";
 	}
 	@GetMapping("/success")
