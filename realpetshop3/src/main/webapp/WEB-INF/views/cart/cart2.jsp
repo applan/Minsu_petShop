@@ -245,8 +245,8 @@
 											class="btn btn-danger btn-lg gradient btn_order_choice_buy"
 											onclick="location.href='/cart3'">선택 상품 주문</button>
 										<button type="button"
-											class="btn btn-danger btn-lg gradient btn_order_whole_buy"
-											onclick="location.href='/cart3'">전체 상품 주문</button>
+											class="btn btn-danger gogo btn-lg gradient btn_order_whole_buy"
+											onclick="gogo()" role="${Totl}">전체 상품 주문</button>
 									</div>
 								</div>
 							</div>
@@ -318,6 +318,7 @@
 	  console.log(coun);
 	  $(".cou").text(coun);
 	  $(".won").text(result+" 원")
+	  $(".gogo").attr("role",result)
 	  $(".won2").text(result)
 	  $.post({
 			url:"/amountM",
@@ -328,6 +329,8 @@
 			dataType:"json",
 			contentType : 'application/json;charset=utf-8',
 			success: function(result) {
+				var sw = ".result_won"+rol;
+				$(sw).text(result.money+" 원");
 				console.log(result);
 			},
 			error:function(request,status,error){
@@ -338,7 +341,15 @@
 	  
 });
 </script>
+<script>
+ function gogo() {
+	var result2 = $(".gogo").attr("role");
+	result2 = parseInt(result2);
+	location.href="/cart3?toresult="+result2;
+}
 
+
+</script>
 
 <%@include file="../includes/footer.jsp"%>
 

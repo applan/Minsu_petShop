@@ -42,6 +42,7 @@
         clear: both;
        
       }
+      
       .ul_a{
        margin: 30px auto;
       }
