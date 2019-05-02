@@ -10,7 +10,7 @@
    <bean id="hikariConfig" class="com.zaxxer.hikari.HikariConfig">
       <property name="driverClassName" value="oracle.jdbc.driver.OracleDriver"/>
       <property name="jdbcUrl" value="jdbc:oracle:thin:@localhost:1521:xe"/>
-      <property name="username" value="javaDB"/><!-- JavaDB -->
+      <property name="username" value="JavaDB"/><!-- JavaDB -->
       <property name="password" value="12345"/>
    </bean>
    
@@ -32,3 +32,5 @@
    <mybatis-spring:scan base-package="com.spring.mapper"/> 
    
 </beans>
+
+

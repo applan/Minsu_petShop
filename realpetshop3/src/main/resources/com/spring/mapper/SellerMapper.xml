@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.spring.mapper.SellerMapper">
+
+<insert id="inserReq">
+  insert into test_request_goods(goodsNum,goodsName,goodsId,goodsMainUrl,goodsUrl,goodsDate,goodsInfo,goodsPrice,category)
+  values(goodsNum_resq.nextVal,#{goodsName},#{goodsId},#{goodsMainUrl},#{goodsUrl},#{goodsDate},#{goodsInfo},#{goodsPrice},#{category})
+</insert>
+
+</mapper>
