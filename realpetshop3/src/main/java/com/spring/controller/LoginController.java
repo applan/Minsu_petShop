@@ -47,27 +47,11 @@ public class LoginController {
 		sessionVO vo5 = (sessionVO)session.getAttribute("vo5");
 		session.setAttribute("vo5",vo5);
 		
-		  if(session.getAttribute("vo5")!=null) {	  
-//			  if("1".equals(vo5.getNum())){
-//				  return "redirect:adminChoicePage";
-//			  }
-//			  else if("3".equals(vo5.getNum())){
-//				  return "redirect:/";
-//			  }
-//			  else if("2".equals(vo5.getNum())) {
-//			  return "redirect:/";
-//			  }
-			  
+		  if(session.getAttribute("vo5")!=null) {
 			  return "redirect:/";
 
 		  }
-		  
-//		  model.addAttribute("num",vo5.getNum());
-//		  model.addAttribute("userno", vo5.getUserno());
-//		  log.info(vo5.getNum()+"  "+vo5.getUserno());
-//		  if(vo5.getNum().equals("1")) {
-//			  return "/management/adminChoicePage";
-//		  }
+
 		  	
 		  
 		  return "/login/login1";
