@@ -62,14 +62,14 @@
 		<div class="form-group row justify-content-center">
 			<div class="col-sm-6 text-left">
 				<div class="form-check form-check-inline">
-				<input type="radio" id="cat" name="cat" value="cat" class="form-check-input"/>고양이			
+				<input type="radio" id="cat" name="cat" value="cat" class="form-check-input" ondblclick="this.checked=false"/>고양이			
 		  	</div>				
 		</div>
 	</div>
 		<div class="form-group row justify-content-center">
 			<div class="col-sm-6 text-left">
 				<div class="form-check form-check-inline">
-				<input type="radio"  id="dog" name="dog" value="dog" class="form-check-input"/>강아지				
+				<input type="radio"  id="dog" name="dog" value="dog" class="form-check-input" ondblclick="this.checked=false"/>강아지				
 			</div>
 			
 		</div>
@@ -77,8 +77,8 @@
 		<div class="form-group row justify-content-center">
 			<div class="col-sm-6 text-left">
 			<input type="email" name="new_email" id="new_email" class="form-control" 
-			value="${info.email}" placeholder="example@gmail.com"/>
-			동의 <input type="radio" id="emailcheck" name="emailcheck" value="1"/><!-- onclick="radio_check2" -->
+			value="${info.email}" placeholder="example@gmail.com" />
+			동의 <input type="radio" id="emailcheck" name="emailcheck" value="1" ondblclick="this.checked=false"/><!-- onclick="radio_check2" -->
 			<div>
 				<p></p>
 				<h6>동의시 이벤트 사항을 이메일로 보내줍니다.</h6>
@@ -120,6 +120,7 @@
 			$('input:radio[name="emailcheck"]').prop("checked", true);
 		}
 	});
+
 
 </script>
 <%@include file="../includes/footer.jsp" %>
