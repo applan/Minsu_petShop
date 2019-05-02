@@ -138,13 +138,4 @@ public class CartController {
 		return "/cart/cart2";		
 	}
 	
-	
-	
-	
-	
-
-
-	
-	
-
 }

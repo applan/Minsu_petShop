@@ -9,6 +9,20 @@ create table cart_tbl(
 	goodsMainUrl nvarchar2(2000) not null,
 	category varchar2(20) not null 
 );
+create table cart_tbl(
+   cartno number primary key,
+   userno number not null,
+   goodsnum number not null,
+   goodsname varchar2(10) not null,
+   amount number default 0,
+   money number default 0,
+   price number,
+   goodsMainUrl nvarchar2(2000) not null,
+   CATEGORY VARCHAR2(20) not null
+);
+
+-- 장바구니 테이블 시퀀스 생성 
+create sequence seq_cart;
 
 drop table cart_tbl;
 -- 장바구니 테이블 시퀀스 생성 
