@@ -16,6 +16,5 @@ public class UserVO {
 	private String emailcheck;
 	private String num;
 	private boolean checkResult;
-	
 
 }

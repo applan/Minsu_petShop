@@ -3,8 +3,7 @@
     pageEncoding="UTF-8"%>
 <%@taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c" %>
 <%@include file="../includes/header.jsp" %>
-
-<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.0/jquery.min.js"></script>
 
 <div style="background-color:white;">
 
@@ -90,9 +89,8 @@
 	<div class="form-group text-center" style="padding-right:50px; padding-top: 5px;">		
 		<button type="submit" class="btn btn-primary" style="background-color: red; border-color:red;">수정</button>
 	    <button type="reset" class="btn btn-secondary" style="background-color: red; border-color:red; color:white;">취소</button>		
-		
-		<!-- 실험용 -->
-		<a href="DeleteId">회원탈퇴</a>
+
+
 		
 		
 		
@@ -128,7 +126,7 @@
 
 </script>
 <%@include file="../includes/footer.jsp" %>
-<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.0/jquery.min.js"></script>
+<script src="/resources/js/jquery-3.3.1.js"></script>
 <script src="/resources/js/jquery.validate.js"></script>
 <script src="/resources/js/editpersonalinformation.js"></script>
 

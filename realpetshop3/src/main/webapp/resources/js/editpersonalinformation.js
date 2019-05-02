@@ -7,15 +7,12 @@ $(function(){
 			},
 		rules:{
 			current_password:{
-				required:true,
-				validPwd : true
+
 			},
 			new_password:{
-				required:true,
 				validPwd : true,
 			},
 			confirm_password:{
-				required:true,
 				validPwd : true,
 				equalTo:"#new_password"
 			},
@@ -28,14 +25,7 @@ $(function(){
 			}
 		},
 		messages:{
-			current_password:{
-				required:"비밀번호는 필수 입력 요소입니다."				
-			},
-			new_password:{
-				required:"비밀번호는 필수 입력 요소입니다."	,				
-			},
-			confirm_password:{
-				required:"비밀번호는 필수 입력 요소입니다."	,				
+			confirm_password:{				
 				equalTo:"이전 비밀번호와 다릅니다."
 			},
 			addr:{

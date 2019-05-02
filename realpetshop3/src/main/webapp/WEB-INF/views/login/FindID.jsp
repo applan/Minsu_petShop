@@ -20,18 +20,24 @@
 			<div class="text-center">
 				<!-- 본문 시작 : start -->
 				<!-- <img src="/resources/img/logo.png" style="width: 300px; margin-left: 130px;" /> -->
-				<form class="formFindId" id="formFindId" method="post" action="/findfindfinduserid">
+				<form class="formFindId idfind" id="formFindId" method="post">
 					<!-- method="post" novalidate="novalidate"-->
 					<p class="p">
 						<i class="fas fa-dog"></i>
 					</p>
-					<label for="username" class="sr-only"></label> <input type="text"
-						id="username" class="form-control" placeholder="이름" required
-						autofocus> <label for="email" class="sr-only"></label> <input
-						type="email" id="email" class="form-control"
+					<label for="username" class="sr-only"></label> 
+					<input type="text" id="username" name="username" class="form-control name" placeholder="이름" required
+						autofocus>
+							
+					<input type="hidden" value="${userid}" id="userid" name="userid" class="form-control" placeholder="이름" required
+						autofocus>
+						
+						<label for="email" class="sr-only"></label> 
+						<input type="email" id="email" name="email" class="form-control email"
 						placeholder="가입한 이메일 주소" required>
-					<button type="button"
-						class="btn btn-primary btn-block btn-lg gradient" type="submit">아이디찾기</button>
+					
+					<button type="submit"
+						class="btn btn-primary btn-block btn-lg gradient"><a href="findfindfinduserid">아이디 찾기</a></button>
 
 					<!-- 				<p class="dn caution-msg1">일치하는 회원정보가 없습니다. 다시 입력해 주세요.</p>
  -->
@@ -54,70 +60,20 @@
 	</div>
 </div>
 <script>
+$(".gradient").click(function(e){
+	e.preventDefault();
+	if($(".name").val().trim() === ""){
+		alert("이름을 입력해주세요");
+		return;
+	}
+	if($(".email").val().trim() === ""){
+		alert("이메일을 입력해주세요");
+		return;
+	}
 	
+	$(".idfind").submit();
+});
 </script>
-
-<!-- <script type="text/javascript">
-    $(document).ready(function () {
-        $('input').keyup(function () {
-            $('.caution-msg1', 'form').addClass('dn');
-        });
-        $('.btn-find-password', 'form').click(function (e) {
-            location.href = '';
-            e.preventDefault();
-        });
-        $('.btn-login', 'form').click(function (e) {
-            location.href = '../member/login.php';
-            e.preventDefault();
-        });
-
-        $('#formFindId').validate({
-            dialog: false,
-            rules: {
-                userName: {
-                    required: true
-                },
-                userEmail: {
-                    required: true,
-                    email: true
-                }
-            },
-            messages: {
-                userName: {
-                    required: "이름을 입력해주세요."
-                },
-                userEmail: {
-                    required: "이메일을 입력해주세요.",
-                    email: "메일 형식이 틀렸습니다."
-                }
-            }, submitHandler: function (form) {
-                var params = $(form).serializeArray();
-                params.push({name: "mode", value: "findId"});
-                $.post('../member/find_ps.php', params).done(function (data, textStatus, jqXHR) {
-                    if (data.result) {
-                        var compiled = _.template($('#templateFindIdResult').html());
-                        var result_message = __('회원님의 아이디는 %s 입니다', '<br><strong>' + data.memberId + '</strong>');
-                        var templateData = {memberId: data.memberId, userName: $('#userName').val(), "result_message": result_message};
-                        $('#divFindId').html(compiled(templateData));
-                    } else {
-                        $(form).find('.caution-msg1').removeClass('dn').text(data.message);
-                    }
-                });
-            }, invalidHandler: function (form, validator) {
-                var errors = validator.numberOfInvalids();
-                if (errors) {
-                    $(form.target).find('.caution-msg1').removeClass('dn').text(validator.errorList[0].message);
-                    validator.errorList[0].element.focus(); 
-                }
-            }
-        });
-    });
-</script> -->
-<%-- <script type="text/template" id="templateFindIdResult">
-    <p class="result-msg"><%=userName%> <%=result_message%></p>
-</script> --%>
-
-<!-- 본문 끝 : end -->
 <%@include file="../includes/footer.jsp"%>
-<script src="/resources/js/jquery.validate.js"></script>
-<script src="/resources/js/findid.js"></script>
+
+
