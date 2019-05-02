@@ -21,13 +21,6 @@
 
 </select>
 
-<!--장바구니 수량 수정  -->
-<update id ="modifyCart">
-	update cart_tbl
-	set amount =#{amount}
-	where userno=#{userno}
-	AND goodsNum=#{goodsNum}
-</update>
 
 
 <!--장바구니 삭제  -->

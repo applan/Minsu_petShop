@@ -8,7 +8,6 @@
 	integrity="sha384-50oBUHEmvpQ+1lW4y57PTFmhCaXp0ML5d60M1M7uH2+nqUivzIebhndOJK28anvf"
 	crossorigin="anonymous">
 <meta name="viewport" content="width=device-width, initial-scale=1">
-
 <div class="container">
 	<div id="contents">
 		<!-- 본문 시작 -->
@@ -28,13 +27,13 @@
 						<div class="order_tit">
 							<p>장바구니</p>
 							<ol>
-								<li class="page_on"><span>01 </span>장바구니 <i
+								<li class="page_next"><span>01 </span>장바구니 <i
 									class="fas fa-chevron-right"></i> <span><img src="#"
 										alt=""></span></li>
 								<li class="page_next"><span>02 </span>주문서작성/결제 <i
 									class="fas fa-chevron-right"></i> <span><img src="#"
 										alt=""></span></li>
-								<li class="page_next"><span>03 </span>주문완료 <i
+								<li class="page_on"><span>03 </span>주문완료 <i
 									class="fas fa-chevron-right"></i></li>
 							</ol>
 						</div>
@@ -242,11 +241,8 @@
 
 									<div class="col-4 btn_right_box text-right">
 										<button type="button"
-											class="btn btn-danger btn-lg gradient btn_order_choice_buy"
-											onclick="location.href='/cart3'">선택 상품 주문</button>
-										<button type="button"
 											class="btn btn-danger gogo btn-lg gradient btn_order_whole_buy"
-											onclick="gogo()" role="${Totl}">전체 상품 주문</button>
+											onclick="location.href='/home'">홈으로 돌아가기</button>
 									</div>
 								</div>
 							</div>
@@ -263,106 +259,4 @@
 		<!-- //본문 끝 contents -->
 	</div>
 </div>
-<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.0/jquery.min.js"></script>
-<script>
-  $(function() {
-	  var sresult = 0;
-	  sresult = parseInt(sresult);
-	  var scoun = 0;
-	  scoun = parseInt(scoun);
-  for(var i=0; i<20; i++){
-	  var sd = ".amo"+i;
-	  scoun +=parseInt($(sd).val() || 0);
-  }
-  $(".cou").text(scoun);
-	   var cn = $(".amoo").length;
-	   console.log(cn);
-	  $(".plus").click(function() {
-	  	var rol = $(this).attr("role");
-	  	var am = ".amo"+rol;
-	  	var amResult = $(am).attr("value");
-	  	amResult = parseInt(amResult); 
-	  	$(am).attr("value",amResult+1);
-	  	var amResult = $(am).attr("value");
-	  	amResult = parseInt(amResult);
-	  	aj(amResult,rol,cn);
-	  });
-	  
-	  $(".minus").click(function() {
-	  	var rol = $(this).attr("role");
-	  	var am = ".amo"+rol;
-	  	var amResult = $(am).attr("value");
-	  	amResult = parseInt(amResult); 
-	  	if((amResult-1) <= 0 ){
-	  	$(am).attr("value",1);
-	  	}
-	  	if((amResult-1) > 0){
-	  	$(am).attr("value",amResult-1);
-	  	}
-	  	var amResult = $(am).attr("value");
-	  	amResult = parseInt(amResult); 
-	  	aj(amResult,rol,cn);
-	  });
-	  
-	  function aj(amResult,rol,cn) {
-		  var result = 0;
-		  result = parseInt(result);
-		  var coun = 0;
-		  coun = parseInt(coun);
-	  for(var i=0; i<20; i++){
-		  var s = ".amo"+i;
-		  var p = ".price"+i;
-		  result += (parseInt($(s).val() || 0 )*parseInt($(p).attr("role") || 0 ));
-		  coun +=parseInt($(s).val() || 0);
-	  }
-	  console.log(coun);
-	  $(".cou").text(coun);
-	  $(".won").text(result+" 원")
-	  $(".gogo").attr("role",result)
-	  $(".won2").text(result)
-	  $.post({
-			url:"/amountM",
-			data : JSON.stringify({
-				amount : amResult,
-				cartno : rol
-			}),
-			dataType:"json",
-			contentType : 'application/json;charset=utf-8',
-			success: function(result) {
-				var sw = ".result_won"+rol;
-				$(sw).text(result.money+" 원");
-				console.log(result);
-			},
-			error:function(request,status,error){
-				alert(request.responseText)
-			}
-		});
-	  }
-	  
-});
-</script>
-<script>
- function gogo() {
-	var result2 = $(".gogo").attr("role");
-	result2 = parseInt(result2);
-	location.href="/cart3?toresult="+result2;
-}
-
-
-</script>
-
 <%@include file="../includes/footer.jsp"%>
-
-
-
-
-
-
-
-
-
-
-
-
-
-

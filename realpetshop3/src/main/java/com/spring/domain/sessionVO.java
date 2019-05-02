@@ -6,4 +6,5 @@ import lombok.Data;
 public class sessionVO {
 	private int userno;
 	private String num;
+
 }

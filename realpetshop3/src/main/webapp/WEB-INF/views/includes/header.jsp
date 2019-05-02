@@ -15,7 +15,7 @@
 	src="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/js/bootstrap.min.js"
 	integrity="sha384-ChfqqxuZUCnJSK3+MXmPNIyE6ZbWh2IMqE241rYiqJxyMiZ6OW/JmZQ5stwEULTy"
 	crossorigin="anonymous"></script>
-<link rel="stylesheet" href="/resources/css/style.css" />
+<link rel="stylesheet" href="resources/css/style.css" />
 
 
 <title>Pet Shop</title>
@@ -37,17 +37,32 @@
 					</div>
 				</div>
 
-				<!-- login menu -->
-				<div class="col-sm-4">
-					<div class="login">
-						<i class="fa fa-user" id="fa"></i>
-						<div class="lo">
-							<a href="/login1">로그인</a>
-						</div>
-						<i class="fa fa-user-plus" id="fa"></i>
+     	<div class="col-sm-4"> 
+          <div class="login"> 
+			          <c:if test = "${empty vo5}">
+			              <i class="fa fa-user" id="fa"></i>
+			              <div class="lo">
+			              	<a href="/login1">로그인</a>
+			              </div>
+			              <i class="fa fa-user-plus" id="fa"></i>
 						<div class="jo">
 							<a href="/SignUp">회원가입</a>
 						</div>
+						
+			          </c:if>
+	        		<c:if test = "${!empty vo5}">
+	        			<i class="fa fa-user" id="fa"></i><div class="lo"><a href="/logout">로그아웃</a></div>
+	        			<i class="fa fa-user" id="fa"></i><div class="lo"><a href="/EditPersonalInformation">개인정보수정</a></div>
+	        			<i class="fa fa-user" id="fa"></i><div class="lo"><a href="/DeleteId">회원탈퇴</a></div>
+	          		</c:if>
+	          		
+	          		<c:if test = "${vo5.num=='1'}">
+	           		   <i class="fa fa-user" id="fa"></i><div class="lo"><a href="/management/adminChoicePage">관리자페이지</a></div>
+	              	</c:if>
+					<c:if test = "${vo5.num=='2'}">
+	           		   <i class="fa fa-user" id="fa"></i><div class="lo"><a href="/management/seller_enrollment">판매자 요청 페이지</a></div>
+	              	</c:if>
+	              	
 						<i class="fa fa-shopping-cart" id="fa"></i>
 						<div class="ca">
 							<a href="/cart/cart2">장바구니</a>

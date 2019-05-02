@@ -17,6 +17,7 @@ import org.springframework.web.bind.support.SessionStatus;
 import org.springframework.web.servlet.mvc.support.RedirectAttributes;
 
 import com.spring.domain.AuthInfo;
+import com.spring.domain.ChangeVO;
 import com.spring.domain.LoginVO;
 import com.spring.domain.UserVO;
 import com.spring.domain.passwordVO;
@@ -35,25 +36,47 @@ public class LoginController {
 	@Autowired
 	private UserService service;
 	
+
+	
 	@GetMapping("/login1") 
-	  public String login(HttpSession session) { 
-		  log.info("로그인 폼");
-		  
-		  if(session.getAttribute("vo5")!=null) {
+	  public String login(Model model, HttpSession session, String num) { 
+		
+		sessionVO vo5 = (sessionVO)session.getAttribute("vo5");
+		session.setAttribute("vo5",vo5);
+		
+		  if(session.getAttribute("vo5")!=null) {	  
+//			  if("1".equals(vo5.getNum())){
+//				  return "redirect:adminChoicePage";
+//			  }
+//			  else if("3".equals(vo5.getNum())){
+//				  return "redirect:/";
+//			  }
+//			  else if("2".equals(vo5.getNum())) {
+//			  return "redirect:/";
+//			  }
+			  
 			  return "redirect:/";
+
 		  }
 		  
+//		  model.addAttribute("num",vo5.getNum());
+//		  model.addAttribute("userno", vo5.getUserno());
+//		  log.info(vo5.getNum()+"  "+vo5.getUserno());
+//		  if(vo5.getNum().equals("1")) {
+//			  return "/management/adminChoicePage";
+//		  }
+		  	
 		  
 		  return "/login/login1";
+
 	  }
-	
-	
+
 	@PostMapping("/login1")
 	public String login(HttpSession session, LoginVO vo, Model model, RedirectAttributes rttr) {
 		log.info("로그인 정보 가져오기 ....");
 		//로그인 시도
 		AuthInfo info = new AuthInfo();
-		log.info(info.getUserid()+" "+info.getCurrent_password());
+		
 		
 		info=service.selectMember(vo);
 		
@@ -63,16 +86,16 @@ public class LoginController {
 		vo5.setUserno(info.getUserno());
 		
 		if(info!=null) {
-			log.info(vo.getNum());
+			log.info(vo5.getNum());
 			if("1".equals(vo5.getNum())) {
 				//관리자 페이지 만들어주기
 				session.setAttribute("vo5",vo5);
-				return "redirect:EditPersonalInformation";
+				return "redirect:adminChoicePage";
 			}
 			else if("2".equals(vo5.getNum())) {
 				//판매자 페이지
 				session.setAttribute("vo5",vo5);
-				return "redirect:FindID";
+				return "redirect:/";
 			}
 			else if("3".equals(vo5.getNum())) {
 				//구매자 페이지
@@ -81,14 +104,14 @@ public class LoginController {
 			}
 			
 		}
-		return "login/SignUp";
+		return "login/login1";
 	}
 	
 	@GetMapping("/SignUp")
 	public String signup() {
 		log.info("가입 요청.....");
 		
-		return "login/SignUp";
+		return "/login/SignUp";
 		
 	}
 
@@ -104,7 +127,14 @@ public class LoginController {
 		log.info(vo.getEmail());
 		log.info(vo.getNum());
 		
-			return "SignUp";
+
+		int result = service.registMember(vo);
+		if(result>0){
+
+			return "redirect:/";
+			
+		}
+			return "/login/SignUp";
 	}
 	//중복아이디 검사 
 	//http://localhost:8083/login/checkId
@@ -129,7 +159,7 @@ public class LoginController {
 		//HttpSession : invalidate(), removeAttribute()
 		//SessionStatus : setComplete()
 		//session.invalidate();
-		//status.setComplete();
+		status.setComplete();
 		
 		
 		return "/login/logout";
@@ -139,21 +169,24 @@ public class LoginController {
 
 	//회원 탈퇴
 	@GetMapping("/DeleteId")
-	public String leave(@ModelAttribute("info")AuthInfo info, SessionStatus status, Model model) {
+	public String leave(HttpSession session, SessionStatus status, Model model) {
 		//userid가 일치하는 회원 탈퇴
 		
-		log.info("회원 탈퇴.." +info.getUserid());
 		
 		
-		int result = service.deleteMember(info);
 		
+		
+		
+		AuthInfo info = new AuthInfo();
+		sessionVO vo5 = (sessionVO)session.getAttribute("vo5");
+		
+		int result = service.deleteMember(vo5);
 		if(result>0) {
 		
-		log.info("탈퇴 :"+info.getUserid());	
-		model.addAttribute("info", info);
-		status.setComplete();
+		model.addAttribute("vo5", vo5);
+		session.invalidate();
 		}
-		return "redirect:login1";
+		return "redirect:/";
 	}
 	
 	//LoginVO	
@@ -164,10 +197,12 @@ public class LoginController {
 		AuthInfo info = new AuthInfo();
 		sessionVO vo5 = (sessionVO)session.getAttribute("vo5");
 		
+		log.info("ff"+vo5.getNum()+" "+vo5.getUserno());
+		
 		info = service.edit(vo5);
 		
 		model.addAttribute("info", info);
-
+		
 		return "/login/EditPersonalInformation";
 	}
 
@@ -215,32 +250,46 @@ public class LoginController {
 	public String emailResult() {
 		return "/login/emailresult";
 	}
-	@GetMapping("/FindID")
-	public String findid() {
-		log.info("아이디 찾기...");
 
-		return "/login/FindID";
-	}
 	@GetMapping("/PasswordRelivalance")
 	public String PasswordRelivalance() {
 		log.info("비밀번호를 찾아보자");
 		
 		return "/login/PasswordRelivalance";
 	}
-	
-	@PostMapping(value="/findfindfinduserid")
-	public String useridfind(String username, String email,
-			Model model, UserVO vo) {
+	@GetMapping("/findfindfinduserid")
+	public String findfindif() {
+		log.info("어흥");
+		return "/login/findfindfinduserid";
+	}
+	@PostMapping("/findfindfinduserid")
+	public String findfinduserid(Model model, UserVO vo, String userid, String username) {
+		
+		model.addAttribute("userid",vo.getUserid());
+		model.addAttribute("username",vo.getUsername());
+		
+		return "/login/findfindfinduserid";
+	}
+
+	@GetMapping("/FindID")
+	public String findid() {
+		log.info("아이디 찾기...");
+
+		return "/login/FindID";
+	}
+	@PostMapping(value="/FindID")
+	public String useridfind(String userid, String username, String email,
+			Model model, UserVO vo, RedirectAttributes rttr) {
 		log.info("아이디 찾기dd"+vo.getUsername()+"GG"+vo.getEmail());
 		
+		
+		
 		UserVO vo1 = service.useridfind(vo);
+		
 		if(vo1!=null) {
-//			System.out.println("<script>");
-//			System.out.println("alert('vo2.getUserid()');");
-//			System.out.println("</script>");
+			model.addAttribute("userid",vo1.getUserid());
 			model.addAttribute("username",vo1.getUsername());
 			model.addAttribute("email",vo1.getEmail());
-			model.addAttribute("userid",vo1.getUserid());
 		}
 
 
@@ -254,16 +303,6 @@ public class LoginController {
 		log.info("sendeamil..."+vo1.getUserid()+"ㅎㅎ"+vo1.getEmail());
 		rttr.addFlashAttribute("userid",vo1.getUserid());
 		rttr.addFlashAttribute("email",vo1.getEmail());
-		
-//		int random=0;
-//		char[] charSet = new char[] {
-//				'0','1','2','3','4','5','6','7','8','9','A','@'
-//		};
-//		StringBuffer sb = new StringBuffer();
-//		for(int i=0; i<6; i++) {
-//			random = (int)(charSet.length * Math.random());
-//			sb.append(charSet[random]);
-//		}
 		
 		int random = (int)Math.floor((Math.random()*(99999-10000+1)))+10000;
 		vo.setPassword(String.valueOf(random));

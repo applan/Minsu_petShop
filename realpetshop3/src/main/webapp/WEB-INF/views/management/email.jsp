@@ -43,8 +43,6 @@
       </table>
 <script>
  $(function() {
-	 
-	 
 	$(".imglink").on("change keyup paste",function() {
 		var imgview = $(".imgviewresult");
 		var imglinkresult = $(".imglink").val();

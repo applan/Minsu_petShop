@@ -112,10 +112,3 @@
 	<div id="jb-footer"></div>
 </div>
 <%@include file="../includes/footer.jsp"%>
-
-
-
-
-
-
-
