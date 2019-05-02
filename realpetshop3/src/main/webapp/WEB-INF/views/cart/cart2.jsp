@@ -243,10 +243,10 @@
 									<div class="col-4 btn_right_box text-right">
 										<button type="button"
 											class="btn btn-danger btn-lg gradient btn_order_choice_buy"
-											onclick="gd_cart_process('orderSelect');">선택 상품 주문</button>
+											onclick="location.href='/cart3'">선택 상품 주문</button>
 										<button type="button"
 											class="btn btn-danger btn-lg gradient btn_order_whole_buy"
-											onclick="gd_order_all();">전체 상품 주문</button>
+											onclick="location.href='/cart3'">전체 상품 주문</button>
 									</div>
 								</div>
 							</div>
