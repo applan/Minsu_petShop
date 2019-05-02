@@ -23,7 +23,7 @@
 				<div class="details">
 					<h3><i class="fas fa-medal" style="color: #DE6868;"></i> 베스트 리뷰 이벤트! <i class="fas fa-medal" style="color: #DE6868;"></i></h3>
 					<p>5월의 베스트 리뷰어를 뽑아 총 10명에게 특별한 상품을 드립니다!</p>
-					<a href="#">자세히보기</a>
+					<a href="/event1">자세히보기</a>
 				</div>
 				<div style="clear: both;">
 				</div>
@@ -35,7 +35,7 @@
 				<div class="details">
 					<h3><i class="fas fa-check" style="color: #DE6868;"></i> 출석체크 <i class="fas fa-check" style="color: #DE6868;"></i></h3>
 					<p>일주일 100% 출석하면 1000P!<br>한 달 100% 출석하면 5000P!</p>
-					<a href="#">출석체크하기</a>
+					<a href="/event2">출석체크하기</a>
 				</div>
 				<div style="clear: both;">
 				</div>
@@ -47,7 +47,7 @@
 				<div class="details">
 					<h3><i class="fas fa-coins" style="color: #DE6868;"></i> POINT 적립  <i class="fas fa-coins" style="color: #DE6868;"></i></h3>
 					<p>SNS에 펫 샵을 홍보해주시면<br>포인트를 적립해드립니다!</p>
-					<a href="#">자세히보기</a>
+					<a href="/event3">자세히보기</a>
 				</div>
 				<div style="clear: both;">
 				</div>

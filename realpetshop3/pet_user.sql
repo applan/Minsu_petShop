@@ -22,15 +22,6 @@ create table pet_user_trash(
 	dog nvarchar2(10),
 	num nvarchar2(10) default '3',
     trashDate date default sysdate
-	userid nvarchar2(20) unique not null,
-	password nvarchar2(50) not null,
-	username nvarchar2(20) not null,
-	addr nvarchar2(50) not null,
-	email nvarchar2(50) unique not null,
-	emailcheck varchar2(10) default '0',
-	cat varchar2(10), 
-	dog varchar2(10),
-	num varchar2(10) default '3'
 );
 
 create table cart_tbl(

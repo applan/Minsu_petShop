@@ -1,17 +1,12 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
 <!DOCTYPE html>
-
 <html>
 <head>
 <meta charset="UTF-8">
-<script type="text/javascript">
-window.opener.location.href='/cart/cart2';
-window.close();
-</script>
-<title>Insert title here</title>
+<title>event3</title>
 </head>
 <body>
-이전 페이지
+event3
 </body>
 </html>
