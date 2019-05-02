@@ -7,56 +7,56 @@
 		http://www.springframework.org/schema/beans https://www.springframework.org/schema/beans/spring-beans.xsd
 		http://www.springframework.org/schema/context https://www.springframework.org/schema/context/spring-context.xsd">
 
-	<!-- DispatcherServlet Context: defines this servlet's request-processing infrastructure -->
-	
-	<!-- Enables the Spring MVC @Controller programming model -->
-	<annotation-driven />
+   <!-- DispatcherServlet Context: defines this servlet's request-processing infrastructure -->
+   
+   <!-- Enables the Spring MVC @Controller programming model -->
+   <annotation-driven />
 
-	<!-- Handles HTTP GET requests for /resources/** by efficiently serving up static resources in the ${webappRoot}/resources directory -->
-	<resources mapping="/resources/**" location="/resources/" />
+   <!-- Handles HTTP GET requests for /resources/** by efficiently serving up static resources in the ${webappRoot}/resources directory -->
+   <resources mapping="/resources/**" location="/resources/" />
 
-	<!-- Resolves views selected for rendering by @Controllers to .jsp resources in the /WEB-INF/views directory -->
-	<beans:bean class="org.springframework.web.servlet.view.InternalResourceViewResolver">
-		<beans:property name="prefix" value="/WEB-INF/views/" />
-		<beans:property name="suffix" value=".jsp" />
-	</beans:bean>
-	
-	<context:component-scan base-package="com.spring.controller" />
-	<context:component-scan base-package="com.spring.service" /> 
-	
-	<beans:bean id="multipartResolver" 
-				class="org.springframework.web.multipart.commons.CommonsMultipartResolver"/>	
-	
-	<beans:bean class="com.spring.controller.UserInceptor" id="user"/>
-		<interceptors>
-			<interceptor>
-			 	<mapping path="/adminChoicePage"/>
-			 	<mapping path="/adminChoicePage_enrollment"/>
-			 	<mapping path="/email"/>
-			 	<mapping path="/sendEmail"/>
-			 	<mapping path="/adminChoicePage_member"/>
-			 	<mapping path="/adminChoicePage_delete"/>
-			 	<mapping path="/delete_goods"/>
-			 	<mapping path="/delete_member"/>
-			 	<mapping path="/modify_member"/>
-			 	<mapping path="/adminChoicePage_request"/>
-			 	<mapping path="/goodsInfo"/>
-			 	<mapping path="/adminChoicePage_trash"/>
-			 	<mapping path="/refresh_user"/>
-			 	<mapping path="/permanently_Delete_goods"/>
-			 	<mapping path="/permanently_Delete_user"/>
-			 	<beans:ref bean="user"/>
-			 </interceptor>
-		</interceptors>
-		
-			<beans:bean class="com.spring.controller.CartInceptor" id="cart"/>
-		<interceptors>
-			<interceptor>
-			 	<mapping path="/cart/*"/>
-			 	<beans:ref bean="cart"/>
-			 </interceptor>
-		</interceptors>
-		
+   <!-- Resolves views selected for rendering by @Controllers to .jsp resources in the /WEB-INF/views directory -->
+   <beans:bean class="org.springframework.web.servlet.view.InternalResourceViewResolver">
+      <beans:property name="prefix" value="/WEB-INF/views/" />
+      <beans:property name="suffix" value=".jsp" />
+   </beans:bean>
+   
+   <context:component-scan base-package="com.spring.controller" />
+   <context:component-scan base-package="com.spring.service" /> 
+   
+   <beans:bean id="multipartResolver" 
+            class="org.springframework.web.multipart.commons.CommonsMultipartResolver"/>   
+   
+   <beans:bean class="com.spring.controller.UserInceptor" id="user"/>
+      <interceptors>
+         <interceptor>
+             <mapping path="/adminChoicePage"/>
+             <mapping path="/adminChoicePage_enrollment"/>
+             <mapping path="/email"/>
+             <mapping path="/sendEmail"/>
+             <mapping path="/adminChoicePage_member"/>
+             <mapping path="/adminChoicePage_delete"/>
+             <mapping path="/delete_goods"/>
+             <mapping path="/delete_member"/>
+             <mapping path="/modify_member"/>
+             <mapping path="/adminChoicePage_request"/>
+             <mapping path="/goodsInfo"/>
+             <mapping path="/adminChoicePage_trash"/>
+             <mapping path="/refresh_user"/>
+             <mapping path="/permanently_Delete_goods"/>
+             <mapping path="/permanently_Delete_user"/>
+             <beans:ref bean="user"/>
+          </interceptor>
+      </interceptors>
+      
+         <beans:bean class="com.spring.controller.CartInceptor" id="cart"/>
+      <interceptors>
+         <interceptor>
+             <mapping path="/cart/*"/>
+             <beans:ref bean="cart"/>
+          </interceptor>
+      </interceptors>
+      
 
-	
+   
 </beans:beans>
