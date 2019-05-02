@@ -21,7 +21,7 @@
 <!--회원 탈퇴 -->
 <delete id ="deleteMember">
 		delete from pet_user
-		where userid =#{userid}
+		where userno =#{userno}
 </delete>
 
 <!--비밀번호 바꾸기  -->

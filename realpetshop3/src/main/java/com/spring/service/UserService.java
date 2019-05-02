@@ -11,7 +11,7 @@ public interface UserService {
 	public UserVO selectById(String userid);
 	public int registMember(UserVO vo);
 	public AuthInfo selectMember(LoginVO vo);
-	public int deleteMember(AuthInfo info);
+	public int deleteMember(sessionVO vo5);
 	public int updateMember(ChangeVO vo);
 	public UserVO useridfind(UserVO vo);
 	public int passwordfind(passwordVO vo);

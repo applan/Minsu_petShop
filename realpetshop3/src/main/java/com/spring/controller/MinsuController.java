@@ -36,12 +36,15 @@ public class MinsuController {
 	@Inject
 	private EmailService emailService;
 	
+
+	
 	@GetMapping("/email") 
 	public String emailPage() {
 		// 이메일 페이지  호출
 		log.info("email...");
 		return "management/email";
 	}
+	
 	
 	@PostMapping("/sendEmail")
 	public String sendEmail(EmailVO vo,Model model) {
@@ -116,6 +119,17 @@ public class MinsuController {
 			
 		}
 		return "management/result_Page";
+	}
+	@GetMapping("seller_enrollment")
+	public String seller() {
+		log.info("헤헤");
+		return "/management/seller_enrollment";
+	}
+	@PostMapping("seller_enrollment")
+	public String seeller() {
+		log.info("히히");
+		
+		return "redirect:/";
 	}
 	
 	
