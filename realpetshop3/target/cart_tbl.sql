@@ -14,12 +14,12 @@ drop table cart_tbl;
 -- 장바구니 테이블 시퀀스 생성 
 create sequence seq_cart;
 
-insert into CART_TBL(cartno,userno,goodsnum,goodsname,amount,price,goodsMainUrl) 
-VALUES(seq_cart.nextVal,10,20,(select goodsName from TEST_GOODS where goodsNum = 20),
-1,(select goodsPrice from TEST_GOODS where goodsNum = 20),(select goodsMainUrl from TEST_GOODS where goodsNum = 20),
-(select category from TEST_GOODS where goodsNum = #{goodsNum}));
+insert into CART_TBL(cartno,userno,goodsnum,goodsname,amount,price,goodsMainUrl,category) 
+VALUES(seq_cart.nextVal,10,21,(select goodsName from TEST_GOODS where goodsNum = 21),
+1,(select goodsPrice from TEST_GOODS where goodsNum = 21),(select goodsMainUrl from TEST_GOODS where goodsNum = 21),
+(select category from TEST_GOODS where goodsNum = 21));
 
-insert into CART_TBL(cartno,userno,goodsnum,goodsname,amount,price,goodsMainUrl) 
+insert into CART_TBL(cartno,userno,goodsnum,goodsname,amount,price,goodsMainUrl,category) 
 VALUES(seq_cart.nextVal,#{userno},#{goodsnum},(select goodsName from TEST_GOODS where goodsNum = #{goodsnum}),
 1,(select goodsPrice from TEST_GOODS where goodsNum = #{goodsnum}),(select goodsMainUrl from TEST_GOODS where goodsNum = #{goodsnum}),
 (select category from TEST_GOODS where goodsNum = #{goodsNum}));
