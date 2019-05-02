@@ -111,7 +111,7 @@
 				<div class="row">
 					<div class="pet-category">
 						<a href="#">사료/간식</a> <a href="#">장난감</a> <a href="#">건강식품/용품</a>
-						<a href="#">하우스/이동장</a> <a href="#">의류/엑세서리</a>
+						<a href="#">하우스/이동장</a> <a href="#">의류/액세서리</a>
 					</div>
 				</div>
 			</div>

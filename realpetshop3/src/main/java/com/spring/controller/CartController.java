@@ -74,6 +74,7 @@ public class CartController {
 				long goodstotal = list.get(i).getPrice() * list.get(i).getAmount();
 				list.get(i).setMoney(String.format("%,d", goodstotal));
 				realtotal += goodstotal;
+				list.get(i).setTotals(goodstotal);
 			}
 			size=list.size();
 		}

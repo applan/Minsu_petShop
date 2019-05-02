@@ -153,16 +153,20 @@
 
 													</td>
 													<td class="td_order_amount">
-														<div class="product-quantity">
-															<input type="number" value="${list.amount}" min="1" class="amo" role="${list.cartno}">
+														<div class="product-quantity" style="display: flex;">
+														    <input type="button" style="height: 30px; width: 30px; margin: 10px 4px" value="-" class="minus" role="${list.cartno}"/>
+															<input type="number" value="${list.amount}" min="1" class="amo${list.cartno} amoo" role="${list.cartno}" readonly="readonly">
+														    <input type="button" style="height: 30px; width: 30px; margin: 10px 4px" value="+" class="plus" role="${list.cartno}"/>
 														</div>
+														
 													</td>
 													<td style="padding-top: 30px;"><strong
-														class="order_sum_txt price">${list.price}</strong>
+														class="order_sum_txt price${list.cartno}" role="${list.price }">${list.price}</strong>
 														<p class="add_currency"></p></td>
 													<td class="td_benefit" >
 														<ul class="benefit_list result_won${list.cartno}" style="padding-left: 0px; margin-bottom: 0px; list-style: none;">
 														  <li >${list.money} 원</li>
+														  <input type="hidden" value="${list.totals}"/>
 														</ul>
 													</td>
 												</tr>
@@ -186,10 +190,10 @@
 									<div class="price_sum_list">
 										<dl>
 											<dt>
-												총 <strong id="totalGoodsCnt">${size}</strong> 개의 상품금액
+												총 <strong id="totalGoodsCnt" class="cou">${size}</strong> 개의 상품금액
 											</dt>
 											<dd>
-												<strong id="totalGoodsPrice">${Totl}</strong>원
+												<strong id="totalGoodsPrice" class="won2">${Totl}</strong>원
 											</dd>
 										</dl>
 										<dl style="padding: 0 0">
@@ -261,41 +265,77 @@
 </div>
 <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.0/jquery.min.js"></script>
 <script>
- $(function() {
-		var amoVal = $(".amo").val();
-	$(".amo").change(function() {
-		var amountVal = $(this).val();
-		var cartnoVal = $(this).attr("role");
-		var s = ".result_won"+cartnoVal;
-		//var re = find(s);
-		var won = $(".won").attr("role"); 
-		console.log(won);
-		$.post({
+  $(function() {
+	  var sresult = 0;
+	  sresult = parseInt(sresult);
+	  var scoun = 0;
+	  scoun = parseInt(scoun);
+  for(var i=0; i<20; i++){
+	  var sd = ".amo"+i;
+	  scoun +=parseInt($(sd).val() || 0);
+  }
+  $(".cou").text(scoun);
+	   var cn = $(".amoo").length;
+	   console.log(cn);
+	  $(".plus").click(function() {
+	  	var rol = $(this).attr("role");
+	  	var am = ".amo"+rol;
+	  	var amResult = $(am).attr("value");
+	  	amResult = parseInt(amResult); 
+	  	$(am).attr("value",amResult+1);
+	  	var amResult = $(am).attr("value");
+	  	amResult = parseInt(amResult);
+	  	aj(amResult,rol,cn);
+	  });
+	  
+	  $(".minus").click(function() {
+	  	var rol = $(this).attr("role");
+	  	var am = ".amo"+rol;
+	  	var amResult = $(am).attr("value");
+	  	amResult = parseInt(amResult); 
+	  	if((amResult-1) <= 0 ){
+	  	$(am).attr("value",1);
+	  	}
+	  	if((amResult-1) > 0){
+	  	$(am).attr("value",amResult-1);
+	  	}
+	  	var amResult = $(am).attr("value");
+	  	amResult = parseInt(amResult); 
+	  	aj(amResult,rol,cn);
+	  });
+	  
+	  function aj(amResult,rol,cn) {
+		  var result = 0;
+		  result = parseInt(result);
+		  var coun = 0;
+		  coun = parseInt(coun);
+	  for(var i=0; i<20; i++){
+		  var s = ".amo"+i;
+		  var p = ".price"+i;
+		  result += (parseInt($(s).val() || 0 )*parseInt($(p).attr("role") || 0 ));
+		  coun +=parseInt($(s).val() || 0);
+	  }
+	  console.log(coun);
+	  $(".cou").text(coun);
+	  $(".won").text(result+" 원")
+	  $(".won2").text(result)
+	  $.post({
 			url:"/amountM",
 			data : JSON.stringify({
-				amount : amountVal,
-				cartno : cartnoVal
+				amount : amResult,
+				cartno : rol
 			}),
 			dataType:"json",
 			contentType : 'application/json;charset=utf-8',
 			success: function(result) {
 				console.log(result);
-				var resd = (result.amount);
-				console.log(resd);
-				var tol = (resd-amoVal);
-				var tad = won*tol;
-				$(s).text(result.money+" 원");
-				$(".won").text(tad+" 원");
 			},
 			error:function(request,status,error){
 				alert(request.responseText)
 			}
 		});
-		
-		
-		
-	   
-	});
+	  }
+	  
 });
 </script>
 

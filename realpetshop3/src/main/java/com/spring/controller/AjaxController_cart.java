@@ -33,4 +33,6 @@ public class AjaxController_cart {
 		vo.setTotals(goodstotal);
 		return vo;
 	}
+	
+
 }
