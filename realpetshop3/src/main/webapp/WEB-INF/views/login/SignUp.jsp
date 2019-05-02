@@ -75,7 +75,7 @@
 
 
 				<input type="radio" name="emailcheck" id="emailcheck"value="1"/> 동의 
-					<input type="radio" name="emailcheck" id="emailcheck"/> 미동의
+					
 				<div>
 					<p></p>
 					<h6>동의시 이벤트 사항을 이메일로 보내줍니다.</h6>

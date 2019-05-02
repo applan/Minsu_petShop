@@ -942,6 +942,108 @@ footer.page-footer .footer-copyright {
 	background: #DE6868;
 	color: #fff;
 }
+/* .notice_page {
+    font-family: 'Do Hyeon', sans-serif;
+    margin: 60px;
+    padding: 80px;
+    -webkit-border-radius: 10px;
+    box-shadow: 0px 8px 20px 0px rgba(0, 0, 0, 0.15);
+}
+.page-header {
+    margin-bottom: 20px;
+    font-size: 50px;
+}
+.panel-body{
+	margin: 20px 0;
+}
+.notice_btn{
+	margin: 20px 0;
+}
+.notice_page input{
+    border: none;
+    border-radius: 0;
+    border-bottom: 2px solid #ccc;
+    font-size: 17px;
+    width: 100%;
+}
+.notice_content {
+    margin: 50px 0;
+}
+
+
+notice list
+.noticeListPage {
+	font-family: 'Do Hyeon', sans-serif;
+	width: 60%;
+    text-align: left !important;
+    margin-bottom: 40px;
+    -webkit-border-radius: 10px;
+    box-shadow: 0px 8px 20px 0px rgba(0, 0, 0, 0.15);
+}
+.noticeListPage a{
+	font-family: 'Do Hyeon', sans-serif;
+	color: #262626;
+}
+.noticeListPage th{
+	font-size: 25px;
+	color: #DE6868;
+}
+.noticeListPage td{
+	font-size: 20px;
+}
+.noticeListPage .border-line{
+	margin: 20px 0 40px;
+}
+.table-striped tbody tr:hover {
+    background-color: #FDF0D0;
+}
+.noticeListPage .col-lg-12 {
+    padding: 0 15px 25px;
+}
+.location_wrap {
+    padding: 20px 0 0;
+}
+noticeRead page
+.noticeReadPage{
+	font-family: 'Do Hyeon', sans-serif;
+    width: 100%;
+    margin-top: 80px;
+    margin-bottom: 80px;
+    padding: 80px;
+    -webkit-border-radius: 10px;
+    box-shadow: 0px 8px 20px 0px rgba(0, 0, 0, 0.15);
+}
+.noticeReadPage input{
+	border: none;
+    border-radius: 0;
+    border-bottom: 2px solid #ccc;
+    font-size: 17px;
+    width: 100%;
+}
+.form-control:disabled, .form-control[readonly] {
+    background-color: #fff;
+}
+textarea{
+	height: 300px!important;
+	border: none!important;
+    border-radius: 0!important;
+    border-bottom: 2px solid #ccc!important;
+    font-size: 17px!important;
+    width: 100%!important;
+}
+.noticeReadPage label{
+	font-size: 25px;
+	color:#DE6868;
+}
+.noticeReadPage p{
+	font-size: 50px;
+}
+.noticeReadPage .border-line{
+	margin: 20px 0 40px;
+}
+.col-1.notice_bno {
+    padding: 0;
+} */
 /*///////////////////////////// notice 종료////////////////////////////////*/
 
 /*///////////////////////////// 회원 로그인,아이디찾기,비밀번호찾기,회원가입 부분 //////////////////////////////////*/
@@ -2407,13 +2509,6 @@ tr {
     border-bottom: 1px solid #dbdbdb;
     background: #f7f7f7;
 }
-.form_element input {
-    position: absolute;
-    top: 3px;
-    left: 1px;
-    width: 0;
-    z-index: -1;
-}
 .order_table_type .form_element label.check_s {
     padding: 0 0 0 5px;
 }
@@ -2449,3 +2544,26 @@ tbody {
     float: right;
 }
 /*///////////////////////////// 장바구니 종료 ///////////////////////////////*/
+
+
+/*///////////////////////////// 회원수정  ///////////////////////////////*/
+
+.modifyUser {
+    width: 85%;
+    text-align: left !important;
+    margin: 50px auto;
+    padding: 20px 10px;
+    -webkit-border-radius: 10px;
+    box-shadow: 0px 8px 20px 0px rgba(0, 0, 0, 0.15);
+    font-family: 'jua', sans-serif;
+}
+.user-modify{
+	color: #DE6868;
+    font-size: 100px;
+    margin-bottom: 40px;
+    text-align: center;
+}
+.form-group h6{
+	margin-top: 10px;
+}
+/*///////////////////////////// 회원수정 종료 ///////////////////////////////*/

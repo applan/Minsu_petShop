@@ -48,6 +48,7 @@
 			 	<beans:ref bean="user"/>
 			 </interceptor>
 		</interceptors>
+		
 			<beans:bean class="com.spring.controller.CartInceptor" id="cart"/>
 		<interceptors>
 			<interceptor>
