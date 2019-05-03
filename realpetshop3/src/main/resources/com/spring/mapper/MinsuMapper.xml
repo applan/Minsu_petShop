@@ -65,7 +65,7 @@
  
   <insert id="insertTrash_members">
    insert into pet_user_trash(userno, password, userid, username, emailcheck,addr,email,cat,dog,num) 
-   values(#{userno},#{password}, #{userid}, #{username}, #{emailcheck},#{addr},#{email},#{cat},#{dog},#{num})
+   values(#{userno},#{password}, #{userid}, #{username}, #{emailcheck},#{addr, jdbcType=VARCHAR},#{email, jdbcType=VARCHAR},#{cat, jdbcType=VARCHAR},#{dog, jdbcType=VARCHAR},#{num})
  </insert>
  
   <select id="getList_goods_trash" resultType="com.spring.domain.GoodsVO_Trash">

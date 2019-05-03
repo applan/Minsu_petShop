@@ -19,6 +19,8 @@
 	</div>
 	<div class="border-line-line" style="margin-bottom: 50px;"></div>
 	<div id="sidebar">
+	<input type="hidden" id="result" value="${reus}" />
+	<input type="hidden" id="userno" value="${vo5.userno}"/>
 		<div id="jb-sidebar">
 			<p class="categorygoods text-center" style="margin-bottom: -10px;">
 				카테고리<i class="fas fa-bone"
@@ -26,89 +28,57 @@
 			</p>
 			<div class="border-line"></div>
 			<ul>
+				<li class="ul_a">
+						<p class="text" style="text-align: center;">카테고리
+						<p></li>
 				<li class="ul_a"><label class="checkboxContainer"><input
-						type="checkbox" /><span class="checkmark"></span>
-						<p class="text">전체
+						type="checkbox" name="test_check" value="A" id="A"/><span class="checkmark"></span>
+						<p class="text" >사료
 						<p></label></li>
 				<li class="ul_a"><label class="checkboxContainer"><input
-						type="checkbox" /><span class="checkmark"></span>
-						<p class="text">사료
-						<p></label></li>
-				<li class="ul_a"><label class="checkboxContainer"><input
-						type="checkbox" /><span class="checkmark"></span>
+						type="checkbox" name="test_check" value="B" id="B"/><span class="checkmark"></span>
 						<p class="text">간식
 						<p></label></li>
 				<li class="ul_a"><label class="checkboxContainer"><input
-						type="checkbox" /><span class="checkmark"></span>
+						type="checkbox" name="test_check" value="C" id="C"/><span class="checkmark"></span>
 						<p class="text">장난감
 						<p></label></li>
 				<li class="ul_a"><label class="checkboxContainer"><input
-						type="checkbox" /><span class="checkmark"></span>
+						type="checkbox" name="test_check" value="D" id="D"/><span class="checkmark"></span>
 						<p class="text">건강식품
 						<p></label></li>
 				<li class="ul_a"><label class="checkboxContainer"><input
-						type="checkbox" /><span class="checkmark"></span>
+						type="checkbox" name="test_check" value="E" id="E"/><span class="checkmark"></span>
 						<p class="text">용품
 						<p></label></li>
 				<li class="ul_a"><label class="checkboxContainer"><input
-						type="checkbox" /><span class="checkmark"></span>
+						type="checkbox" name="test_check" value="F" id="F"/><span class="checkmark"></span>
 						<p class="text">하우스
 						<p></label></li>
 				<li class="ul_a"><label class="checkboxContainer"><input
-						type="checkbox" /><span class="checkmark"></span>
+						type="checkbox" name="test_check" value="G" id="G"/><span class="checkmark"></span>
 						<p class="text">이동장
 						<p></label></li>
 				<li class="ul_a"><label class="checkboxContainer"><input
-						type="checkbox" /><span class="checkmark"></span>
+						type="checkbox" name="test_check" value="H" id="H"/><span class="checkmark"></span>
 						<p class="text">의료
 						<p></label></li>
 				<li class="ul_a"><label class="checkboxContainer"><input
-						type="checkbox" /><span class="checkmark"></span>
+						type="checkbox" name="test_check" value="I" id="I"/><span class="checkmark"></span>
 						<p class="text">액세사리
 						<p></label></li>
 			</ul>
 		</div>
 	</div>
-	<c:forEach var="i" begin="0" end="20">
-		<div id="jb-content">
-			<img
-				src="https://www.petbox.kr/data/goods/18/12/51//16771/register_main_028.jpg"
-				alt="" class="h2img" />
-			<h4 style="font-family: 'jua', sans-serif;">
-				<a href="#" style="color: #262626;">제품 이름</a>
-			</h4>
-			<div style="text-align: left; color: #ff6c2a; margin-right: 10px;">
-				<b style="font-size: 20px;">펫샵가</b> <strong class="item_price">
-					<div style="color: #333;">46,000원</div>
-				</strong>
-				<div style="height: 22px; margin-top: 5px;">
-					<span id="date_out"
-						style="font-size: 14px; color: #00891A; letter-spacing: -2px;">월요일
-						04/29 출고 예정</span>
-				</div>
-			</div>
-			<p style="text-align: left; font-style: italic !important; font-size: 14px;">
-				<i class="fas fa-bolt" style="color: #1C53EA;"></i> 당일배송
-			</p>
-			<div style="display: flex;"></div>
-			<div class="card-read-more">
-				<div class="overlay-right">
-					<button type="button" class="btn btn-primary btn-sm gradient"
-						title="Quick Shop">
-						<i class="far fa-eye"></i>
-					</button>
-					<button type="button" class="btn btn-primary btn-sm gradient"
-						title="Add to Wishlist">
-						<i class="fas fa-heart"></i>
-					</button>
-					<button type="button" class="btn btn-primary btn-sm gradient"
-						title="Add to Cart">
-						<i class="fas fa-shopping-cart"></i>
-					</button>
-				</div>
-			</div>
-		</div>
-	</c:forEach>
+    <div id="wr">
+    
+
+    </div>
 	<div id="jb-footer"></div>
 </div>
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.0/jquery.min.js"></script>
+<script src="/resources/js/search.js"></script>
+<script>
+
+</script>
 <%@include file="../includes/footer.jsp"%>

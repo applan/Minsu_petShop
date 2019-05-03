@@ -23,6 +23,7 @@ import com.spring.domain.UserVO;
 import com.spring.domain.UserVO_Trash;
 import com.spring.service.EmailService;
 import com.spring.service.MinsuService;
+import com.spring.service.SellerService;
 
 import lombok.extern.slf4j.Slf4j;
 
@@ -36,6 +37,8 @@ public class MinsuController {
 	@Inject
 	private EmailService emailService;
 	
+	@Inject
+	private SellerService sellerService;
 
 	
 	@GetMapping("/email") 
@@ -57,7 +60,7 @@ public class MinsuController {
 	}
 
 	
-	@GetMapping("adminChoicePage")
+	@GetMapping("/adminChoicePage")
 	// admin 페이지 호출
 	public String adminChoicePage(Model model) {
 		log.info("adminChoicePage...");
@@ -69,7 +72,7 @@ public class MinsuController {
 		return "management/adminChoicePage_main";
 	}
 	
-	@GetMapping("adminChoicePage_member")
+	@GetMapping("/adminChoicePage_member")
 	public String adminChoicePage_memeber(Model model) {
 		// admin_회원관리 페이지 호출
 		log.info("adminChoicePage_member...");
@@ -84,7 +87,7 @@ public class MinsuController {
 		model.addAttribute("member_list", list);
 		return "management/adminChoicePage_member";
 	}
-	@GetMapping("adminChoicePage_delete")
+	@GetMapping("/adminChoicePage_delete")
 	public String adminChoicePage_delete(Model model) {
 		// admin_상품관리 페이지 호출
 		log.info("adminChoicePage_goodsPage...");
@@ -96,7 +99,7 @@ public class MinsuController {
 		model.addAttribute("delete_list", list);
 		return "management/adminChoicePage_delete";
 	}
-	@GetMapping("adminChoicePage_enrollment")
+	@GetMapping("/adminChoicePage_enrollment")
 	public String adminChoicePage_enrollment(Model model) {
 		// admin_상품등록 페이지 호출
 		SimpleDateFormat mSimpleDateFormat = new SimpleDateFormat ( "yyyy-MM-dd", Locale.KOREA );
@@ -106,7 +109,7 @@ public class MinsuController {
 		model.addAttribute("toDay",mTime);
 		return "management/adminChoicePage_enrollment";
 	}
-	@PostMapping("adminChoicePage_enrollment")
+	@PostMapping("/adminChoicePage_enrollment")
 	public String adminChoicePage_enrollment(GoodsVO vo,Model model) {
 		log.info("adminChoicePage_enrollment_insert...");
 		log.info(vo.toString());
@@ -120,20 +123,20 @@ public class MinsuController {
 		}
 		return "management/result_Page";
 	}
-	@GetMapping("seller_enrollment")
+	@GetMapping("/seller_enrollment")
 	public String seller() {
 		log.info("헤헤");
-		return "/management/seller_enrollment";
+		return "seller/requestPage";
 	}
-	@PostMapping("seller_enrollment")
-	public String seeller() {
+	@PostMapping("/seller_enrollment")
+	public String seeller(GoodsVO vo) {
 		log.info("히히");
-		
+		sellerService.inserReq(vo);
 		return "redirect:/";
 	}
 	
 	
-    @GetMapping("delete_goods")
+    @GetMapping("/delete_goods")
     public String delete_goods(int goodsNum,Model model) {
     	log.info("adminChoicePage_delete_goods...");
     	int result = minService.delete_goods(goodsNum);
@@ -147,7 +150,7 @@ public class MinsuController {
     
     
     
-    @GetMapping("delete_member")
+    @GetMapping("/delete_member")
     public String delete_member(int userno,Model model) {
     	log.info("adminChoicePage_delete_member....");
     	int result = minService.delete_members(userno);
@@ -160,7 +163,7 @@ public class MinsuController {
     	return "management/result_Page";
     }
     
-    @GetMapping("modify_member")
+    @GetMapping("/modify_member")
     public String modify_member_go(Model model,int userno) {
     	log.info("adminChoicePage_modify_member......");
     	UserVO vo = minService.getUserInfo(userno);
@@ -168,7 +171,7 @@ public class MinsuController {
     	return "management/modify_member";
     }
     
-    @PostMapping("modify_member")
+    @PostMapping("/modify_member")
     public String modify_member(UserChangeVO vo,Model model) {
     	log.info("adminChoicePage_modify_member....modify..");
     	int result = minService.modify_authority(vo);
@@ -180,7 +183,7 @@ public class MinsuController {
     	return "management/result_Page";
     }
     
-    @GetMapping("adminChoicePage_request")
+    @GetMapping("/adminChoicePage_request")
     public String adminChoicePage_request(Model model) {
     	log.info("adminChoicePage_request..");
     	List<GoodsVO> list =minService.getList_request();
@@ -191,7 +194,7 @@ public class MinsuController {
     	return "management/adminChoicePage_request";
     }
     
-    @GetMapping("goodsInfo")
+    @GetMapping("/goodsInfo")
     public String adminChoicePage_goodsInfo(int goodsNum,Model model) {
     	log.info("goodsInfo...");
     	GoodsVO vo =minService.getRequestInfo(goodsNum);
@@ -200,7 +203,7 @@ public class MinsuController {
     	return "management/request_window";
     }
     
-    @GetMapping("adminChoicePage_trash")
+    @GetMapping("/adminChoicePage_trash")
     public String adminChoicePage_trash(Model model) {
     	log.info("trash...");
     	List<GoodsVO_Trash> list = minService.getList_goods_trash();
@@ -223,7 +226,7 @@ public class MinsuController {
     	return "management/adminChoicePage_trash";
     }
     
-    @GetMapping("refresh_goods")
+    @GetMapping("/refresh_goods")
     public String refresh_goods(int goodsNum,Model model) {
     	log.info("refresh_goods...");
     	int result = minService.restore_goods(goodsNum);
@@ -235,7 +238,7 @@ public class MinsuController {
     	return "management/result_Page";
     }
     
-    @GetMapping("refresh_user")
+    @GetMapping("/refresh_user")
     public String refresh_user(int userno,Model model) {
     	log.info("refresh_user...");
     	int result = minService.restore_member(userno);
@@ -247,7 +250,7 @@ public class MinsuController {
     	return "management/result_Page";
     }
     
-    @GetMapping("permanently_Delete_goods")
+    @GetMapping("/permanently_Delete_goods")
     public String permanently_Delete_goods(int goodsNum,Model model) {
     	int result = minService.permanently_Delete_goods(goodsNum);
     	if(result >0) {
@@ -258,7 +261,7 @@ public class MinsuController {
     	return "management/result_Page";
     }
     
-    @GetMapping("permanently_Delete_user")
+    @GetMapping("/permanently_Delete_user")
     public String permanently_Delete_user(int userno,Model model) {
     	int result = minService.permanently_Delete_member(userno);
     	if(result >0) {

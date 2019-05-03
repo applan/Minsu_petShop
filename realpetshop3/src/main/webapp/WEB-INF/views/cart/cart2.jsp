@@ -161,7 +161,7 @@
 														
 													</td>
 													<td style="padding-top: 30px;"><strong
-														class="order_sum_txt price${list.cartno}" role="${list.price }">${list.price}</strong>
+														class="order_sum_txt price${list.cartno}" role="${list.price}">${list.price}</strong>
 														<p class="add_currency"></p></td>
 													<td class="td_benefit" >
 														<ul class="benefit_list result_won${list.cartno}" style="padding-left: 0px; margin-bottom: 0px; list-style: none;">
@@ -241,9 +241,7 @@
 									<div class="col-4"></div>
 
 									<div class="col-4 btn_right_box text-right">
-										<button type="button"
-											class="btn btn-danger btn-lg gradient btn_order_choice_buy"
-											onclick="location.href='/cart3'">선택 상품 주문</button>
+										
 										<button type="button"
 											class="btn btn-danger gogo btn-lg gradient btn_order_whole_buy"
 											onclick="gogo()" role="${Totl}">전체 상품 주문</button>
@@ -270,7 +268,7 @@
 	  sresult = parseInt(sresult);
 	  var scoun = 0;
 	  scoun = parseInt(scoun);
-  for(var i=0; i<20; i++){
+  for(var i=0; i<1000; i++){
 	  var sd = ".amo"+i;
 	  scoun +=parseInt($(sd).val() || 0);
   }
@@ -309,7 +307,7 @@
 		  result = parseInt(result);
 		  var coun = 0;
 		  coun = parseInt(coun);
-	  for(var i=0; i<20; i++){
+	  for(var i=0; i<1000; i++){
 		  var s = ".amo"+i;
 		  var p = ".price"+i;
 		  result += (parseInt($(s).val() || 0 )*parseInt($(p).attr("role") || 0 ));

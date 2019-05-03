@@ -44,6 +44,7 @@ public class LoginController {
 		sessionVO vo5 = (sessionVO)session.getAttribute("vo5");
 		session.setAttribute("vo5",vo5);
 		
+		
 		  if(session.getAttribute("vo5")!=null) {	  
 //			  if("1".equals(vo5.getNum())){
 //				  return "redirect:adminChoicePage";
@@ -84,13 +85,13 @@ public class LoginController {
 		
 		vo5.setNum(info.getNum());
 		vo5.setUserno(info.getUserno());
-		
+		model.addAttribute("userno", vo5.getUserno());
 		if(info!=null) {
 			log.info(vo5.getNum());
 			if("1".equals(vo5.getNum())) {
 				//관리자 페이지 만들어주기
 				session.setAttribute("vo5",vo5);
-				return "redirect:adminChoicePage";
+				return "redirect:/";
 			}
 			else if("2".equals(vo5.getNum())) {
 				//판매자 페이지

@@ -59,13 +59,22 @@ public class CartController {
 		return "redirect:goods";
 	}
 	
-	
-	
+	@GetMapping("/insCart")
+	public String insertC(CartVO vo,RedirectAttributes red) {
+		 int result = service.insertCart(vo);
+		 if(result >0) {
+			 red.addAttribute("userno", vo.getUserno());
+			 return "redirect:/cart/cart2";
+			 
+		 }
+		 red.addAttribute("userno", vo.getUserno());
+		 return "redirect:/cart/cart2";
+	}
 	//장바구니 리스트 보여주기
 	@GetMapping("/cart2")
-	public void listCart(Model model) {
+	public void listCart(Model model,int userno) {
 		log.info("listCart 보여주기..");
-		List<CartVO> list =service.listCart(10);
+		List<CartVO> list =service.listCart(userno);
 		long realtotal = 0;
 		int size =0;
 		if(!list.isEmpty()) {

@@ -5,7 +5,7 @@ create table pet_user(
 	username nvarchar2(20) not null,
 	addr nvarchar2(50) not null,
 	email nvarchar2(50) unique not null,
-	emailcheck char(1) default '0',
+	emailcheck varchar2(3) default '0',
 	cat varchar2(10), 
 	dog varchar2(10),
 	num varchar2(10) default '3'
@@ -47,7 +47,7 @@ insert into pet_user(userno,userid,password,username,addr,email,emailcheck,cat,d
 values(rno_seq.nextVal,'jang1234','1234qwer!','관리자','코리아아이티','applan_siepe@naver.com','1','cat','dog','1');
 
 insert into pet_user(userno,userid,password,username,addr,email,emailcheck,cat,dog,num) 
-values(rno_seq.nextVal,'jang12345','1234qwer!','판매자1','코리아아이티','cms4861@naver.com','0','cat','dog','2');
+values(rno_seq.nextVal,'jang12345','1234qwer!','판매자1','코리아아이티','cms4861@naver.com','0','cat','dog','1');
 insert into pet_user(userno,userid,password,username,addr,email,emailcheck,cat,dog,num) 
 values(rno_seq.nextVal,'jang12346','1234qwer!','판매자2','코리아아이티','w@naver.com','1','cat','dog','2');
 

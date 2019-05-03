@@ -1,0 +1,76 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.spring.mapper.AjaxMapper">
+
+ <!-- 검색 기준이 들어오는 경우와 안들어오는 두 가지 경우 처리 -->
+ <select id="getList" resultType="com.spring.domain.GoodsVO"> <!-- 페이지 번호를 이용해서 뽑아내기 -->
+                                                  
+   select * from test_goods where
+   
+     <include refid="criteria"></include>
+     
+ </select> 
+ <!-- 검색 기준이 들어오는 경우와 안들어오는 두 가지 경우 처리 -->
+ <select id="getListAll" resultType="com.spring.domain.GoodsVO"> <!-- 페이지 번호를 이용해서 뽑아내기 -->
+   select * from test_goods
+ </select> 
+
+<!-- 전체 게시물 수 구하기  -->
+ <select id="countGoods" resultType="int">
+  select count(*) from test_goods where
+  <include refid="criteria"></include> <!-- 값이 오면 처리해주고 값이 없으면 처리 안함  (criteria에 값이 없으면 그냥 아예 빈칸됨)-->
+  <!-- criteria에 값이 있는 경우 sql : ( title like '%'|| ? ||'%' OR writer like '%'|| ? ||'%' ) AND bno >0 
+       criteria에 값이 없는 경우 sql :                                                           AND bno >0-->
+ </select>
+ 
+ <select id="countGoodsAll" resultType="int">
+  select count(*) from test_goods
+ </select>
+ 
+ <!-- 동적 SQL 문 추가 -->
+ <sql id="criteria">
+ <!-- prefixOverrides="OR"는 여기서 딱히 사용되지 않는다 
+               ㄴ 만약에 이 문장이 붙기 전에 OR이 붙어있으면 그 OR을 지워버리겠다! 라는 의미  -->
+  <trim prefix="(" suffix=")" prefixOverrides="OR"> <!-- ⓐ(로 시작하고  ⓕ루프 끝나면 )와 AND를 붙여줌 --> 
+  <if test="list != null"> 
+  <!-- 질문 : suffix에서 AND사용한 이유 
+          답변 : 루프 모두 끝난 후 )와 AND 붙여줌-->
+    <foreach collection="list" item="ty"> <!-- ⓑtypeArr로 값을 읽고   -->
+     <if test="list != null"> 
+       <trim prefix="OR">   <!-- ⓓOR붙여주고 ⓔ foreach전부 종료하면 ⓕ로 이동-->
+	       <choose>
+	         <when test="ty=='A'.toString()">   <!-- ⓒtype으로 들어 온 애의 속성이 T인지 확인 -->
+	           category = '사료'  <!--    ㄴ 맞다면 실행 아니면 넘어간 후 ⓓ로 이동 -->
+	         </when>
+	         <when test="ty=='B'.toString()">    <!-- ⓒtype으로 들어 온 애의 속성이 C인지 확인 -->
+	           category = '간식' <!--    ㄴ 맞다면 실행 아니면 ⓓ로 이동 -->
+	         </when>
+	         <when test="ty=='C'.toString()">    <!-- ⓒtype으로 들어 온 애의 속성이 W인지 확인 -->
+	           category = '장난감'  <!--    ㄴ 맞다면 실행 아니면 ⓓ로 이동 -->
+	         </when>
+	         <when test="ty=='D'.toString()">    <!-- ⓒtype으로 들어 온 애의 속성이 W인지 확인 -->
+	           category = '건강식품'  <!--    ㄴ 맞다면 실행 아니면 ⓓ로 이동 -->
+	         </when>
+	         <when test="ty=='E'.toString()">    <!-- ⓒtype으로 들어 온 애의 속성이 W인지 확인 -->
+	           category = '용품'  <!--    ㄴ 맞다면 실행 아니면 ⓓ로 이동 -->
+	         </when>
+	         <when test="ty=='F'.toString()">    <!-- ⓒtype으로 들어 온 애의 속성이 W인지 확인 -->
+	           category = '하우스' <!--    ㄴ 맞다면 실행 아니면 ⓓ로 이동 -->
+	         </when>
+	         <when test="ty=='G'.toString()">    <!-- ⓒtype으로 들어 온 애의 속성이 W인지 확인 -->
+	           category = '이동장'  <!--    ㄴ 맞다면 실행 아니면 ⓓ로 이동 -->
+	         </when>
+	         <when test="ty=='H'.toString()">    <!-- ⓒtype으로 들어 온 애의 속성이 W인지 확인 -->
+	           category = '의료'  <!--    ㄴ 맞다면 실행 아니면 ⓓ로 이동 -->
+	         </when>
+	         <when test="ty=='I'.toString()">    <!-- ⓒtype으로 들어 온 애의 속성이 W인지 확인 -->
+	           category = '액세사리'  <!--    ㄴ 맞다면 실행 아니면 ⓓ로 이동 -->
+	         </when>
+	       </choose>
+       </trim>
+       </if>
+    </foreach>
+   </if> 
+  </trim>
+ </sql>
+</mapper>
