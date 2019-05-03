@@ -26,10 +26,11 @@
 
 <!--비밀번호 바꾸기  -->
 <update id ="updateMember">
-	update pet_user set password=#{new_password}, addr=#{new_addr}, email=#{new_email}, 
-	dog=#{dog,jdbcType=VARCHAR}, cat=#{cat,jdbcType=VARCHAR}, emailcheck=#{emailcheckjdbcType=VARCHAR}
+	update pet_user set password=#{new_password}, addr=#{new_addr}, 
+	dog=#{dog,jdbcType=VARCHAR}, cat=#{cat,jdbcType=VARCHAR}, email=#{new_email}, emailcheck=#{emailcheck,jdbcType=VARCHAR}
 	where  userid =#{userid} and username=#{username}
 </update>
+
 <!-- 비밀번호 찾기 -->
 <update id="passwordfind">
 	update pet_user set password=#{password} where userid=#{userid} and email=#{email}
@@ -41,4 +42,5 @@
 <select id="edit" resultType="com.spring.domain.AuthInfo">
 	select userid, username, addr, cat, dog, email, emailcheck from pet_user where userno=#{userno} and num=#{num}
 </select>
+
 </mapper>

@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" 
+"http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.spring.mapper.NoticeMapper">
+<insert id="insert">
+	insert into notice_board(n_bno,n_title,n_content,n_writer)
+	values(seq_notice_board.nextVal,#{n_title},#{n_content},#{n_writer})
+</insert>
+<select id="getList" resultType="com.spring.domain.NoticeVO">
+		select * from notice_board where n_bno>0 order by n_bno desc
+</select>	
+<select id="read" resultType="com.spring.domain.NoticeVO">
+		select * from notice_board where n_bno=#{n_bno}
+</select>
+<delete id="remove">
+	delete from notice_board where n_bno=#{n_bno}
+</delete>
+<update id="update">
+	update notice_board
+	set n_title=#{n_title}, n_content=#{n_content}
+	where n_bno=#{n_bno}
+</update>
+</mapper>
