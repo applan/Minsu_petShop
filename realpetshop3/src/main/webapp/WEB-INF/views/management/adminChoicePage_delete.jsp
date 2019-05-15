@@ -29,7 +29,7 @@
   <tbody>
     <c:forEach var="list" items="${delete_list}">
 		<tr>
-		  <td><a href="${list.goodsNum}">${list.goodsNum}</a></td>
+		  <td><a href="/GoodsInfoView?goodsnum=${list.goodsNum}">${list.goodsNum}</a></td>
 		  <td>${list.goodsName}</td>
 		  <td>${list.goodsPriceFormat} 원</td>
 		  <td>${list.goodsId}</td>

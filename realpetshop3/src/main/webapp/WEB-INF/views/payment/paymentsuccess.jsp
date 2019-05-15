@@ -2,13 +2,7 @@
 <%@page import="java.util.List"%>
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
-    <% List<ShopVO> list=(List)request.getAttribute("list");
-    int result3 = 0;
-    for(int i=0; i<list.size(); i++){
-    	result3 += list.get(i).getSummoney();
-    	
-    }
-    %>
+<% int resultTo = Integer.parseInt(request.getParameter("resultTo")); %>
 <!DOCTYPE html>
 
 
@@ -76,19 +70,10 @@ window.close();
 		<th>결제 금액</th>
 	</tr>
 	<tr>
-	<!-- 상품 반복문 들어갈 구간 -->
-	<%for(ShopVO vo:list){
-	%>
-	</tr>
-		<th><%=vo.getProductname() %></th>
-		<th><%=vo.getMonth() %></th>
-		<th><%=vo.getPaymentdata() %></th>
-		<th><%=vo.getResult2() %></th>
-		<th><%=vo.getMoney() %></th>
-	<%} %>
+
 	<tr>
 		<th colspan="4">합 계</th>
-		<td><%= result3  %>원</td>
+		<td><%= resultTo %>원</td>
 	</tr>
 	<tr>
 	<td colspan="5" align="center">

@@ -3,17 +3,25 @@ package com.spring.controller;
 import java.util.ArrayList;
 import java.util.List;
 
+import javax.inject.Inject;
+import javax.servlet.http.HttpSession;
+
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
 
+import com.spring.domain.CartVO;
 import com.spring.domain.ShopVO;
+import com.spring.service.CartService;
 
 import lombok.extern.slf4j.Slf4j;
 
 @Slf4j
 @Controller
 public class PaymentController {
+	@Inject
+	CartService service;
+	
 	@GetMapping("/payment")
 	public String payment() {
 		log.info("결제 화면 부르기");
@@ -32,17 +40,6 @@ public class PaymentController {
 	@GetMapping("/paymentsuccess")
 	public String paymentsuccess(Model model) {
 		log.info("결제 성공!!");
-		List<ShopVO> list = new ArrayList<ShopVO>();
-		ShopVO vo=new ShopVO();
-		vo.setProductname("개 사료");
-		vo.setMonth("1");
-		vo.setPaymentdata("카카오페이");
-		vo.setResult(true);
-		vo.setResult2(vo.isResult());
-		vo.setMoney(10000);
-		vo.setSummoney(vo.getMoney());
-		list.add(vo);
-		model.addAttribute("list",list);
 		return "/payment/paymentsuccess";
 	}
 	@GetMapping("/home")
@@ -56,9 +53,24 @@ public class PaymentController {
 		return "payment/monthpay";
 	}
 	@GetMapping("/cart3")
-	public String cart3() {
+	public String cart3(HttpSession session,int userno) {
 		log.info("주문 결제화면");
-		
+		List<CartVO> list =service.listCart(userno);
+		long realtotal = 0;
+		int size =0;
+		if(!list.isEmpty()) {
+			for(int i=0; i<list.size(); i++) {
+			
+				long goodstotal = list.get(i).getPrice() * list.get(i).getAmount();
+				list.get(i).setMoney(String.format("%,d", goodstotal));
+				realtotal += goodstotal;
+				list.get(i).setTotals(goodstotal);
+			}
+			size=list.size();
+		}
+		session.setAttribute("list", list);
+		session.setAttribute("Totl", realtotal);
+		session.setAttribute("size", size);
 		return "cart/cart3";
 	}
 	@GetMapping("/success")

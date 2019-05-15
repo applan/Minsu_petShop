@@ -1362,8 +1362,32 @@ tbody {
 .btn_order_box .btn_right_box {
     float: right;
 }
+.overlay-right button {
+    margin: 10px 3px;
+}
 /*///////////////////////////// 장바구니 종료 ///////////////////////////////*/
 
+/*///////////////////////////// 회원수정  ///////////////////////////////*/
+
+.modifyUser {
+    width: 85%;
+    text-align: left !important;
+    margin: 50px auto;
+    padding: 20px 10px;
+    -webkit-border-radius: 10px;
+    box-shadow: 0px 8px 20px 0px rgba(0, 0, 0, 0.15);
+    font-family: 'jua', sans-serif;
+}
+.user-modify{
+   color: #DE6868;
+    font-size: 100px;
+    margin-bottom: 40px;
+    text-align: center;
+}
+.form-group h6{
+   margin-top: 10px;
+}
+/*///////////////////////////// 회원수정 종료 ///////////////////////////////*/
 
 
 /*///////////////////////////// 서치  ///////////////////////////////*/
@@ -1433,14 +1457,14 @@ tbody {
     border-radius: 5px;
 }
 
-#sidebar ul li:nth-child(1) {
+/* #sidebar ul li:nth-child(1) {
 	background-color: #DE6868;
 }
 
 #sidebar ul li:visited {
 	color: #DE6868;
 }
-
+ */
 #sidebar ul li a {
 	display: block;
 	color: #fff;

@@ -28,9 +28,9 @@
 			</p>
 			<div class="border-line"></div>
 			<ul>
-				<li class="ul_a">
+				<!-- <li class="ul_a">
 						<p class="text" style="text-align: center;">카테고리
-						<p></li>
+						<p></li> -->
 				<li class="ul_a"><label class="checkboxContainer"><input
 						type="checkbox" name="test_check" value="A" id="A"/><span class="checkmark"></span>
 						<p class="text" >사료

@@ -17,6 +17,7 @@ import org.springframework.web.bind.support.SessionStatus;
 import org.springframework.web.servlet.mvc.support.RedirectAttributes;
 
 import com.spring.domain.AuthInfo;
+import com.spring.domain.ChangeVO;
 import com.spring.domain.LoginVO;
 import com.spring.domain.UserVO;
 import com.spring.domain.passwordVO;
@@ -44,11 +45,6 @@ public class LoginController {
 		session.setAttribute("vo5",vo5);
 		
 
-		
-		  	  
-
-			  
-
 		  if(session.getAttribute("vo5")!=null) {
 
 			  return "redirect:/";
@@ -67,7 +63,9 @@ public class LoginController {
 		
 		
 		info=service.selectMember(vo);
-		
+		if(info == null) {
+			return "login/login1";
+		}
 		sessionVO vo5 = new sessionVO();
 		
 		vo5.setNum(info.getNum());
@@ -193,7 +191,19 @@ public class LoginController {
 		
 		return "/login/EditPersonalInformation";
 	}
-
+	
+	@PostMapping("/EditPersonalInformation")
+	public String EditPersonalInformation1(Model model, ChangeVO vo) {
+	if(vo.getEmailcheck() == null) {
+		vo.setEmailcheck("on");
+	}
+	int result = service.updateMember(vo);
+	
+	if(result>0) {
+		model.addAttribute("vo",vo);
+	}
+	return "redirect:/";
+	}
 
 //	@PostMapping(value= "/EditPersonalInformation")
 //	public String EditPersonalInformation1(@ModelAttribute("info")AuthInfo info, ChangeVO vo,
@@ -268,16 +278,16 @@ public class LoginController {
 	@PostMapping(value="/FindID")
 	public String useridfind(String userid, String username, String email,
 			Model model, UserVO vo, RedirectAttributes rttr) {
-		log.info("아이디 찾기dd"+vo.getUsername()+"GG"+vo.getEmail());
+		log.info("아이디 찾기dd"+vo.getUsername()+"GG"+vo.getEmail()+""+vo.getUserid());
 		
 		
 		
-		UserVO vo1 = service.useridfind(vo);
+		vo = service.useridfind(vo);
 		
-		if(vo1!=null) {
-			model.addAttribute("userid",vo1.getUserid());
-			model.addAttribute("username",vo1.getUsername());
-			model.addAttribute("email",vo1.getEmail());
+		if(vo!=null) {
+			model.addAttribute("userid",vo.getUserid());
+			model.addAttribute("username",vo.getUsername());
+			model.addAttribute("email",vo.getEmail());
 		}
 
 

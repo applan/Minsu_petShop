@@ -37,7 +37,7 @@
   <tbody>
     <c:forEach var="list" items="${member_list}">
 		<tr>
-		  <td><a href="${list.userno}">${list.userno}</a></td>
+		  <td><a href="#" onclick="getMM(${list.userno})">${list.userno}</a></td>
 		  <td>${list.userid}</td>
 		  <td>${list.username}</td>
 		  <c:if test="${list.checkResult}">
@@ -63,4 +63,11 @@
   </tbody>
 </table>
 </div>
+<script>
+ function getMM(userno) {
+	var url = "/getMe?userno="+userno;
+	window.open(url, "Pet Shop", "width=800, height=700, toolbar=no, menubar=no, scrollbars=no, resizable=yes" );  
+		
+}
+</script>
 <%@include file="../includes/footer_admin.jsp" %>

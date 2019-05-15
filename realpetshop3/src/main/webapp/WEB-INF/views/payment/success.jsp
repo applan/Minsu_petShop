@@ -153,9 +153,7 @@
 													</td>
 													<td class="td_order_amount">
 														<div class="product-quantity" style="display: flex;">
-														    <input type="button" style="height: 30px; width: 30px; margin: 10px 4px" value="-" class="minus" role="${list.cartno}"/>
 															<input type="number" value="${list.amount}" min="1" class="amo${list.cartno} amoo" role="${list.cartno}" readonly="readonly">
-														    <input type="button" style="height: 30px; width: 30px; margin: 10px 4px" value="+" class="plus" role="${list.cartno}"/>
 														</div>
 														
 													</td>
@@ -230,12 +228,6 @@
 							<div class="btn_order_box">
 								<div class="row no-gutters">
 									<div class="col-4 btn_left_box">
-										<button type="button"
-											class="btn btn-primary btn-lg gradient btn_order_choice_del"
-											onclick="gd_cart_process('cartDelete');">선택 상품 삭제</button>
-										<button type="button"
-											class="btn btn-primary btn-lg gradient btn_order_choice_wish"
-											onclick="gd_cart_process('cartToWish');">선택 상품 찜</button>
 									</div>
 									<div class="col-4"></div>
 

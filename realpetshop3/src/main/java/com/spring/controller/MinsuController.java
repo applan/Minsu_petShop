@@ -77,6 +77,9 @@ public class MinsuController {
 		// admin_회원관리 페이지 호출
 		log.info("adminChoicePage_member...");
 		List<UserVO> list = minService.getList_member();
+	    for(UserVO vo : list) {
+	    	log.info(vo.toString());
+	    }
 		for(int i=0; i<list.size(); i++) {
 			if(list.get(i).getEmailcheck().equals("1")) {
 				list.get(i).setCheckResult(true);
@@ -282,6 +285,14 @@ public class MinsuController {
     		model.addAttribute("result_permanently_Delete_request", "false");
     	}
     	return "management/result_Page";
+    }
+    
+    @GetMapping("/getMe")
+    public String getMe(int userno,Model model) {
+    	log.info("user를 찾기");
+    	UserVO vo = minService.getUserInfo(userno);
+    	model.addAttribute("meVO", vo);
+    	return "management/member_window";
     }
     
 }

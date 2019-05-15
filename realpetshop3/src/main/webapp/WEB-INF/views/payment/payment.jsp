@@ -2,7 +2,7 @@
 <%@page import="java.util.List"%>
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
- 
+    <%@taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c"%>
 <!DOCTYPE html>
 <html>
 <script src="https://cdn.bootpay.co.kr/js/bootpay-3.0.0.min.js" type="application/javascript"></script>
@@ -12,26 +12,24 @@
 <title>Insert title here</title>
 </head>
 <body>
+<script>
+ 
+</script>
 <script type="text/javascript">
 BootPay.request({
-	price: "45000", //실제 결제되는 가격 goodsPrice+2500
+	price: "${Totl}", //실제 결제되는 가격 goodsPrice+2500
 	application_id: "5cbecf7a396fa65278e54256",
-	name: "사료", //결제창에서 보여질 이름 //goodsName
+	name: "상품들", //결제창에서 보여질 이름 //goodsName
 	show_agree_window: 0, // 부트페이 정보 동의 창 보이기 여부
 	items: [
 		{
-			item_name: "사료", //상품명 goodsName
+			item_name: "츄르", //상품명 goodsName
 			qty: 1, //수량
 			unique: '123', //해당 상품을 구분짓는 primary key
-			price: "22000", //상품 단가 goodsPrice
+			price: "${Totl}", //상품 단가 goodsPrice
 			
 		}
 	],
-	user_info: {
-		username: '사용자 이름',//username
-		email: 'yhm0411@naver.com',//email
-		addr: '사용자 주소'//addr
-	},
 	order_id: '고유order_id', //고유 주문번호로, 생성하신 값을 보내주셔야 합니다.랜덤값 생성
 	params: {callback1: 'callback1', callback2: 'callback2', customvar1234: 'customvar'},
 	account_expire_at: '2019-05-25', // 가상계좌 입금기간 제한 ( yyyy-mm-dd 포멧으로 입력해주세요. 가상계좌만 적용됩니다. )
@@ -64,7 +62,8 @@ BootPay.request({
     console.log(data);
 }).done(function (data) {
 	//결제가 정상적으로 완료되면 수행됩니다
-	location.href='paymentsuccess'
+	alert("${Totl}원이 정상 결제되었습니다. 감사합니다!!! :D");
+	location.href='paymentsuccess?resultTo=${Totl}';
 	console.log(data);
 });
 </script>

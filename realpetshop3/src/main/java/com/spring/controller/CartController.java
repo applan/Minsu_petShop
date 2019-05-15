@@ -5,7 +5,7 @@ import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
 
-
+import javax.servlet.http.HttpSession;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
@@ -72,7 +72,7 @@ public class CartController {
 	}
 	//장바구니 리스트 보여주기
 	@GetMapping("/cart2")
-	public void listCart(Model model,int userno) {
+	public void listCart(HttpSession session,int userno) {
 		log.info("listCart 보여주기..");
 		List<CartVO> list =service.listCart(userno);
 		long realtotal = 0;
@@ -87,9 +87,9 @@ public class CartController {
 			}
 			size=list.size();
 		}
-		model.addAttribute("list", list);
-		model.addAttribute("Totl", realtotal);
-		model.addAttribute("size", size);
+		session.setAttribute("list", list);
+		session.setAttribute("Totl", realtotal);
+		session.setAttribute("size", size);
 	}
 	//장바구니 리스트 보여주기
 	@GetMapping("/cart3")

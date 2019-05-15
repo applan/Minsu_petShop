@@ -29,7 +29,7 @@
 					<input type="text" id="username" name="username" class="form-control name" placeholder="이름" required
 						autofocus>
 							
-					<input type="hidden" value="${userid}" id="userid" name="userid" class="form-control" placeholder="이름" required
+					<input type="hidden" value="${vo.userid}" id="userid" name="userid" class="form-control" placeholder="이름" required
 						autofocus>
 						
 						<label for="email" class="sr-only"></label> 
@@ -37,7 +37,7 @@
 						placeholder="가입한 이메일 주소" required>
 					
 					<button type="submit"
-						class="btn btn-primary btn-block btn-lg gradient"><a href="findfindfinduserid">아이디 찾기</a></button>
+						class="btn btn-primary btn-block btn-lg gradient"><a href="findfindfinduserid" style="color:#fff">아이디 찾기</a></button>
 
 					<!-- 				<p class="dn caution-msg1">일치하는 회원정보가 없습니다. 다시 입력해 주세요.</p>
  -->

@@ -24,31 +24,31 @@ public class NoticeController {
 	@GetMapping("/event")
 	public String event() {
 		log.info("event page 호출...");
-		return "/notice/event";
+		return "notice/event";
 	}
 
 	@GetMapping("/event1")
 	public String event1() {
 		log.info("event1 호출");
-		return "/notice/event1";
+		return "notice/event1";
 	}
 
 	@GetMapping("/event2")
 	public String event2() {
 		log.info("event2 호출");
-		return "/notice/event2";
+		return "notice/event2";
 	}
 
 	@GetMapping("/event3")
 	public String event3() {
 		log.info("event3 호출");
-		return "/notice/event3";
+		return "notice/event3";
 	}
 
 	@GetMapping("/notice")
 	public String notice() {
 		log.info("notice page 호출...");
-		return "/notice/notice";
+		return "notice/notice";
 	}
 
 	@PostMapping("/notice")
@@ -63,7 +63,7 @@ public class NoticeController {
 		log.info("게시글 목록 보여주기.....");
 		List<NoticeVO> list = service.getList();
 		model.addAttribute("list", list);
-		return "/notice/noticeList";
+		return "notice/noticeList";
 	}
 
 	@GetMapping("/noticeList_Admin")
@@ -71,7 +71,7 @@ public class NoticeController {
 		log.info("게시글 목록 보여주기.....");
 		List<NoticeVO> list = service.getList();
 		model.addAttribute("list", list);
-		return "/notice/noticeList_Admin";
+		return "notice/noticeList_Admin";
 	}
 
 	// 글번호를 받아서 글번호에 해당하는 내용 가져온 후
@@ -81,7 +81,7 @@ public class NoticeController {
 		log.info("read..." + n_bno);
 		NoticeVO vo = service.read(n_bno);
 		model.addAttribute("vo", vo);
-		return "/notice/noticeRead";
+		return "notice/noticeRead";
 	}
 
 	@GetMapping(value = { "/noticeRead_Admin"})
@@ -89,7 +89,7 @@ public class NoticeController {
 		log.info("read..." + n_bno);
 		NoticeVO vo = service.read(n_bno);
 		model.addAttribute("vo", vo);
-		return "/notice/noticeRead_Admin";
+		return "notice/noticeRead_Admin";
 	}
 	
 	@GetMapping(value = {"noticeUpdate_Admin" })
@@ -97,7 +97,7 @@ public class NoticeController {
 		log.info("update..." + n_bno);
 		NoticeVO vo = service.read(n_bno);
 		model.addAttribute("vo", vo);
-		return "/notice/noticeUpdate_Admin";
+		return "notice/noticeUpdate_Admin";
 	}
 
 	@GetMapping("/noticeRemove_Admin")

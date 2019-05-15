@@ -343,7 +343,7 @@
  function gogo() {
 	var result2 = $(".gogo").attr("role");
 	result2 = parseInt(result2);
-	location.href="/cart3?toresult="+result2;
+	location.href="/cart3?toresult="+result2+"&userno="+${vo5.userno};
 }
 
 
